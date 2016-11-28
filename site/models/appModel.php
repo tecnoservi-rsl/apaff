@@ -105,7 +105,7 @@ $sql = "UPDATE permisos SET permiso = $retVal WHERE id_menu = $menu AND id_role=
         $metodo=$peticion->getMetodo();
        
 
-        echo $sql="INSERT INTO log values ('',$usuario,'$ip','$controlador','$metodo',CURDATE(),CURTIME())";
+         $sql="INSERT INTO log values ('',$usuario,'$ip','$controlador','$metodo',CURDATE(),CURTIME())";
         $this->_db->query($sql);
         
 
