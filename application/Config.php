@@ -9,13 +9,13 @@
  */
 
 
-define('BASE_URL', 'http://localhost/framework/');
+define('BASE_URL', 'http://localhost/apaff/');
 //define('BASE_URL', 'http://192.168.0.5/didactico/');
 //define('BASE_URL', 'http://americas89.no-ip.info:8080/didactico/');
 define('DEFAULT_CONTROLLER', 'principal');
-define('DEFAULT_LAYOUT', 'layout_legna');
-define('APP_NAME', 'framework');
-define('APP_SLOGAN', 'framework');
+define('DEFAULT_LAYOUT', 'basic');
+define('APP_NAME', 'apaff');
+define('APP_SLOGAN', 'acministracion eficas');
 define('APP_COMPANY', 'Tecnoservi');
 define('APP_TLF', '');
 define('APP_EMAIL', '');
@@ -24,7 +24,7 @@ define('HASH_KEY', '4f6a6d832be79');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'framework');
+define('DB_NAME', 'apaff');
 define('DB_CHAR', 'utf8');
 
 
