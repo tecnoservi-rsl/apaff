@@ -1,0 +1,37 @@
+	<div  class="col-xs-10 col-sm-10 col-md-10 col-lg-10  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+		<div class="header-titulos"> lista de partidas cargadas </div>
+		
+		<div class="">
+
+			
+
+<table class="table">
+<tr>
+	<td>partida</td>
+	<td>denominacion</td>
+	<td>cantidad 1</td>
+	<td>cantidad</td>
+</tr>
+<?php for ($i=0; $i <count($this->partidas) ; $i++):?>
+
+
+<tr>
+	<td><?php echo $this->partidas[$i]["partida"] ?></td>
+	<td><?php echo $this->partidas[$i]["denominacion"] ?></td>
+	<td><?php echo $this->partidas[$i]["saldo"] ?></td>
+	<td><?php echo $this->partidas[$i]["saldo_total"] ?></td>
+</tr>
+
+
+
+
+
+
+
+
+<?php endfor; ?>
+</table>
+			
+		</div>
+
+	</div>

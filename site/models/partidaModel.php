@@ -16,6 +16,14 @@ class partidaModel extends Model
          $rs->setFetchMode(PDO::FETCH_ASSOC);
             return $rs->fetch();
     } 
+     public function get_all()
+    {
+        
+       $sql = "SELECT * FROM partidas WHERE 1=1";
+         $rs=$this->_db->query($sql);
+         //$rs->setFetchMode(PDO::FETCH_ASSOC);
+            return $rs->fetchall();
+    } 
 
     public function get_aumentos_for_partida($id)
     {
@@ -23,7 +31,7 @@ class partidaModel extends Model
        $sql = "SELECT * FROM aumento WHERE id_partida='$id'";
          $rs=$this->_db->query($sql);
         $rs->setFetchMode(PDO::FETCH_ASSOC);
-            return $rs->fetch();
+            return $rs->fetchall();
     } 
     public function get_descuentos_for_partida($id)
     {
@@ -31,7 +39,7 @@ class partidaModel extends Model
        $sql = "SELECT * FROM descuento WHERE id_partida='$id'";
          $rs=$this->_db->query($sql);
          $rs->setFetchMode(PDO::FETCH_ASSOC);
-            return $rs->fetch();
+            return $rs->fetchall();
     } 
     public function guardar($datos)
     {

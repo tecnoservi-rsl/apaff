@@ -36,18 +36,70 @@ class partidaController extends Controller
 							
 			
 	}
+	public function consultar()
+    {
+
+       		
+			
+			$this->_view->setJs(array('consultar'));
+			$this->_view->setCss(array('consultar'));
+        		$this->_view->titulo = 'partidas';
+
+
+        		
+			$partidas=$this->_partida->get_all();
+
+			
+
+			for ($i=0; $i < count($partidas) ; $i++) { 
+
+			$acum_descuentos=0;
+       		$acum_aumentos=0;
+       		$acum_total=0;
+				
+			  $aumentos=$this->_partida->get_aumentos_for_partida($partidas[$i]['id_partida']);
+			  $descuentos=$this->_partida->get_descuentos_for_partida($partidas[$i]['id_partida']);
+			  for ($y=0; $y < count($aumentos) ; $y++) { 
+				$acum_aumentos+=$aumentos[$y]["cantidad"];
+
+			  }
+			  for ($y=0; $y < count($descuentos) ; $y++) { 
+				$acum_descuentos=$descuentos[$y]["cantidad"];
+			  }
+
+			$partidas[$i]["saldo_total"]=$acum_aumentos;
+			$partidas[$i]['saldo']=($acum_aumentos-$acum_descuentos);
+
+
+			}
+
+			
+
+
+			$this->_view->partidas=$partidas;
+
+			$this->_view->renderizar('consultar');
+							
+			
+	}
 	
 	  public function get_partida_for_partida()
     	{
 
-       
+       		$acum_descuentos=0;
+       		$acum_aumentos=0;
 			$partida=$this->_partida->get_partida_for_partida($_GET['partida']);
 			$aumentos=$this->_partida->get_aumentos_for_partida($partida['id_partida']);
 			$descuentos=$this->_partida->get_descuentos_for_partida($partida['id_partida']);
 
-			
+			for ($i=0; $i < count($aumentos) ; $i++) { 
+				$acum_aumentos+=$aumentos[$i]["cantidad"];
+			}
+			for ($i=0; $i < count($descuentos) ; $i++) { 
+				$acum_descuentos=$descuentos[$i]["cantidad"];
+			}
 
-			$partida['saldo']=($aumentos['cantidad']-$descuentos["cantidad"]);
+			$partida['saldo']=($acum_aumentos-$acum_descuentos);
 
 			echo json_encode($partida);			
 			
