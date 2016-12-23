@@ -1,5 +1,5 @@
 .navbar-default {
-background-color: #B00000;
+background-color: #3B4BFF;
 }
 .navbar-default .navbar-nav > li > a {
 color: #FFFFFF; 
@@ -8,12 +8,12 @@ color: #FFFFFF;
 color: #FFFFFF; 
 }
 .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-color: #A8A8A8; 
+color: #D4D4D4; 
 }
 
 .header-content {
 
-background-color: #D90000; 
+background-color: #6A70D9; 
 min-height: 200px;
 color: #FFFFFF; 
 border-color: #FFFFFF; 
@@ -26,22 +26,22 @@ border-color: #FFFFFF;
 
 
 
-background-color: #D90000;
+background-color: #3B43D9;
 
 
 }
 #pie{
-background-color: #940000;
+background-color: #3B4BFF;
 
 
-color: #D1D1D1;
+color: #FFFFFF;
 
 
 
-border-color: #D1D1D1;
+border-color: #FFFFFF;
 }
 .container-fluid.fondo {
-background-color: #E6E6E6;
+background-color: #FFFFFF;
 }
 /* 
 ojo este estilo no se debe tocar 

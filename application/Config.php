@@ -12,9 +12,9 @@
 define('BASE_URL', 'http://localhost/apaff/');
 //define('BASE_URL', 'http://192.168.0.5/didactico/');
 //define('BASE_URL', 'http://americas89.no-ip.info:8080/didactico/');
-define('DEFAULT_CONTROLLER', 'principal');
+define('DEFAULT_CONTROLLER', 'login');
 define('DEFAULT_LAYOUT', 'basic');
-define('APP_NAME', 'apaff');
+define('APP_NAME', 'Saff');
 define('APP_SLOGAN', 'acministracion eficas');
 define('APP_COMPANY', 'Tecnoservi');
 define('APP_TLF', '');

@@ -1,0 +1,12 @@
+.btn-success {
+	color: #fff;
+	background-color: #3b43d9;
+	border-color: #151D1566;
+	font-style: italic;
+}
+.btn-success:hover {
+	color: #fff;
+	background-color: #3b43d999;
+	border-color: #151D1566;
+	font-style: italic;
+}
