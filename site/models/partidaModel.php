@@ -54,7 +54,7 @@ class partidaModel extends Model
     public function actualizar($datos)
     {
         
-  echo $sql = "UPDATE `partidas` SET `denominacion` = '".$datos["denominacion"]."' WHERE partida ='".$datos["partida"]."' ";
+ $sql = "UPDATE `partidas` SET `denominacion` = '".$datos["denominacion"]."' WHERE partida ='".$datos["partida"]."' ";
          $this->_db->query($sql);
         
     
