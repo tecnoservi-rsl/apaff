@@ -55,17 +55,23 @@ class partidaController extends Controller
 
 			$acum_descuentos=0;
        		$acum_aumentos=0;
-       		$acum_total=0;
+       		
 				
-			  $aumentos=$this->_partida->get_aumentos_for_partida($partidas[$i]['id_partida']);
-			  $descuentos=$this->_partida->get_descuentos_for_partida($partidas[$i]['id_partida']);
-			  for ($y=0; $y < count($aumentos) ; $y++) { 
-				$acum_aumentos+=$aumentos[$y]["cantidad"];
+			  $aumentos=$this->_partida->get_operacion_for_partida($partidas[$i]['id_partida']);
+			  
 
-			  }
-			  for ($y=0; $y < count($descuentos) ; $y++) { 
-				$acum_descuentos=$descuentos[$y]["cantidad"];
-			  }
+			 for ($y=0; $y < count($aumentos) ; $y++) { 
+
+				if ($aumentos[$y]['tipo']=="aum") {
+					$acum_aumentos+=$aumentos[$y]["cantidad"];
+				}else{
+
+					$acum_descuentos+=$aumentos[$y]["cantidad"];
+				}
+				
+
+			}
+			  
 
 			$partidas[$i]["saldo_total"]=$acum_aumentos;
 			$partidas[$i]['saldo']=($acum_aumentos-$acum_descuentos);
@@ -89,15 +95,21 @@ class partidaController extends Controller
        		$acum_descuentos=0;
        		$acum_aumentos=0;
 			$partida=$this->_partida->get_partida_for_partida($_GET['partida']);
-			$aumentos=$this->_partida->get_aumentos_for_partida($partida['id_partida']);
-			$descuentos=$this->_partida->get_descuentos_for_partida($partida['id_partida']);
+			$aumentos=$this->_partida->get_operacion_for_partida($partida['id_partida']);
+			
 
 			for ($i=0; $i < count($aumentos) ; $i++) { 
-				$acum_aumentos+=$aumentos[$i]["cantidad"];
+
+				if ($aumentos[$i]['tipo']=="aum") {
+					$acum_aumentos+=$aumentos[$i]["cantidad"];
+				}else{
+
+					$acum_descuentos+=$aumentos[$i]["cantidad"];
+				}
+				
+
 			}
-			for ($i=0; $i < count($descuentos) ; $i++) { 
-				$acum_descuentos=$descuentos[$i]["cantidad"];
-			}
+			
 
 			$partida['saldo']=($acum_aumentos-$acum_descuentos);
 
@@ -118,6 +130,18 @@ class partidaController extends Controller
        
 			$this->_partida->actualizar($_GET);
 					
+			
+	}
+	  public function get_partida_all()
+    	{
+
+       		
+	$partida=$this->_partida->get_partida_for_partida($_GET['partida']);
+			
+	$partida['operacion']=$this->_partida->get_operacion_for_partida($partida['id_partida']);
+	
+			
+	echo json_encode($partida);			
 			
 	}
 		

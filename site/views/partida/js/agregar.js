@@ -52,7 +52,7 @@ $(document).ready(function(){
 
 			        location.reload(true);
 
-		},"json");
+		});
 	});
 
 	$(document).on('click', '#actualizar', function() {
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
 			        location.reload(true);
 
-		},"json");
+		});
 	});
 
 	$(document).on('click', '#limpiar', function() {

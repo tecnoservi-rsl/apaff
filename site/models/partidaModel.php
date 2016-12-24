@@ -25,29 +25,22 @@ class partidaModel extends Model
             return $rs->fetchall();
     } 
 
-    public function get_aumentos_for_partida($id)
+    public function get_operacion_for_partida($id)
     {
         
-       $sql = "SELECT * FROM aumento WHERE id_partida='$id'";
+       $sql = "SELECT * FROM operacion WHERE id_partida='$id'";
          $rs=$this->_db->query($sql);
         $rs->setFetchMode(PDO::FETCH_ASSOC);
             return $rs->fetchall();
     } 
-    public function get_descuentos_for_partida($id)
-    {
-        
-       $sql = "SELECT * FROM descuento WHERE id_partida='$id'";
-         $rs=$this->_db->query($sql);
-         $rs->setFetchMode(PDO::FETCH_ASSOC);
-            return $rs->fetchall();
-    } 
+    
     public function guardar($datos)
     {
         
       $sql = "INSERT INTO `partidas` (`id_partida`, `partida`, `denominacion`) VALUES (NULL, '".$datos['partida']."', '".$datos["denominacion"]."')";
          $this->_db->query($sql);
          $id=$this->_db->lastInsertId();
-         $sql = "INSERT INTO `aumento` (`id_aumento`, `id_partida`, `cantidad`) VALUES (NULL,$id,'".$datos["saldo"]."')";
+         echo $sql = "INSERT INTO `aumento`  VALUES (NULL,$id,'".$datos["saldo"]."',now(),'Apertura de partida')";
          $this->_db->query($sql);
         
     } 
