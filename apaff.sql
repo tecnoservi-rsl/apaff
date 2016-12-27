@@ -3,12 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-11-2016 a las 04:02:40
+-- Tiempo de generación: 27-12-2016 a las 12:42:16
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.5.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "-04:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `cumanax`
+-- Base de datos: `apaff`
 --
 
 -- --------------------------------------------------------
@@ -36,6 +36,14 @@ CREATE TABLE `log` (
   `hora` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `log`
+--
+
+INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
+(17, NULL, '127.0.0.1', 'principal', 'index', '2016-12-22', '17:21:31'),
+(715, NULL, '127.0.0.1', 'login', 'index', '2016-12-23', '22:09:01');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +55,50 @@ CREATE TABLE `menu` (
   `titulo` varchar(50) NOT NULL,
   `enlace` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `operacion`
+--
+
+CREATE TABLE `operacion` (
+  `id_aumento` int(11) NOT NULL,
+  `id_partida` int(11) NOT NULL,
+  `cantidad` decimal(10,2) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `comentario` varchar(1000) NOT NULL,
+  `tipo` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `operacion`
+--
+
+INSERT INTO `operacion` (`id_aumento`, `id_partida`, `cantidad`, `fecha`, `comentario`, `tipo`) VALUES
+(9, 10, '100.00', '2016-12-23 14:59:51', 'Apertura de partida', 'aum'),
+(10, 10, '100.00', '2016-12-23 13:41:37', 'prueba aumento', 'aum'),
+(11, 10, '100.00', '2016-12-24 13:41:37', 'otro aumento', 'aum'),
+(12, 10, '20.00', '2016-12-23 11:30:29', 'asaasd', 'des');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `partidas`
+--
+
+CREATE TABLE `partidas` (
+  `id_partida` int(11) NOT NULL,
+  `partida` varchar(30) NOT NULL,
+  `denominacion` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `partidas`
+--
+
+INSERT INTO `partidas` (`id_partida`, `partida`, `denominacion`) VALUES
+(10, '4.00.00.00', 'inicial');
 
 -- --------------------------------------------------------
 
@@ -120,6 +172,19 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
+-- Indices de la tabla `operacion`
+--
+ALTER TABLE `operacion`
+  ADD PRIMARY KEY (`id_aumento`),
+  ADD KEY `id_partidas` (`id_partida`);
+
+--
+-- Indices de la tabla `partidas`
+--
+ALTER TABLE `partidas`
+  ADD PRIMARY KEY (`id_partida`);
+
+--
 -- Indices de la tabla `permisos`
 --
 ALTER TABLE `permisos`
@@ -151,12 +216,22 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
   MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `operacion`
+--
+ALTER TABLE `operacion`
+  MODIFY `id_aumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT de la tabla `partidas`
+--
+ALTER TABLE `partidas`
+  MODIFY `id_partida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
@@ -181,6 +256,12 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `log`
   ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+
+--
+-- Filtros para la tabla `operacion`
+--
+ALTER TABLE `operacion`
+  ADD CONSTRAINT `operacion_ibfk_1` FOREIGN KEY (`id_partida`) REFERENCES `partidas` (`id_partida`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `permisos`
