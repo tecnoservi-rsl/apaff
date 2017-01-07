@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+      $('#saldo').autoNumeric('init');    
+
+
 
 	$(document).on('keyup', '#partida', function() {
 
@@ -41,12 +44,13 @@ $(document).ready(function(){
 
 	$(document).on('click', '#guardar', function() {
 
+		
 
 		$.get(base_url+"partida/guardar",{
 
 			"partida" : $("#partida").val(),
 			"denominacion" : $("#denominacion").val(),
-			"saldo" : $("#saldo").val()
+			"saldo" : tranformar_moneda_format($("#saldo").val())
 
 		},function(){
 

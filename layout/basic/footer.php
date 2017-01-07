@@ -11,9 +11,9 @@
 
 
  <!-- Publicos -->
+<script src="<?php echo BASE_URL; ?>public/js/config.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/alertify.min.js" type="text/javascript"></script>
-<script src="<?php echo BASE_URL; ?>public/js/config.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery.validationEngine-es.js" type="text/javascript"></script>
 <script src="<?php echo BASE_URL; ?>public/js/jquery-ui.js" type="text/javascript"></script>
@@ -22,6 +22,7 @@
 <!-- Bootstrap Core JavaScript -->
  <script src="<?php echo BASE_URL; ?>public/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- Plugin JavaScript -->
+ <script src="<?php echo BASE_URL; ?>public/js/autoNumeric.min.js" type="text/javascript"></script>
 <!-- Custom Theme JavaScript -->
 <!--  Js del layout  -->
  <script src="<?php echo $_layoutParams['ruta_js'];?>header.js" type="text/javascript"></script>

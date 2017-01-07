@@ -39,7 +39,6 @@ $(document).on('click', '#infor_partida', function(event) {
 		html += '</td>';
 		html += '</tr>';
 
-
 		console.log(data.operacion.length);
 
 
@@ -57,7 +56,7 @@ $(document).on('click', '#infor_partida', function(event) {
 		html += '</td>';
 		html += '<td> ';
 		html += '</td>';
-		html += '<td> '+data.operacion[i].cantidad;
+		html += '<td> '+formatNumber.new(data.operacion[i].cantidad, "Bs");
 		total1+=parseFloat(data.operacion[i].cantidad);
 		html += '</td>';
 		
@@ -66,7 +65,7 @@ $(document).on('click', '#infor_partida', function(event) {
 		}else{
 		html += '<td> '+data.operacion[i].fecha;
 		html += '</td>';	
-		html += '<td> '+data.operacion[i].cantidad;
+		html += '<td> '+formatNumber.new(data.operacion[i].cantidad, "Bs");
 		total2+=parseFloat(data.operacion[i].cantidad);
 		html += '</td>';
 		html += '<td> ';
@@ -81,9 +80,12 @@ $(document).on('click', '#infor_partida', function(event) {
 
 		}
 
-		html += '<tr><td colspan="3">SUB TOTALES</td><td>'+total2.toFixed(2)+'</td> <td>'+total1.toFixed(2)+'</td> </tr>';
-		html += '<tr><td colspan="4">TOTAL</td><td>'+(total1+total2).toFixed(2)+'</td> </tr>';
+		html += '<tr><td colspan="3">SUB TOTALES</td><td>'+formatNumber.new(total2.toFixed(2), "Bs")+'</td> <td>'+formatNumber.new(total1.toFixed(2), "Bs")+'</td> </tr>';
+		html += '<tr><td colspan="4">TOTAL</td><td>'+formatNumber.new((total1-total2).toFixed(2), "Bs")+'</td> </tr>';
 		html += '</table>';
+
+
+
 
 		$("#tablaa").html(html);
 

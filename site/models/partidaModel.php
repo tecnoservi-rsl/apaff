@@ -40,7 +40,7 @@ class partidaModel extends Model
       $sql = "INSERT INTO `partidas` (`id_partida`, `partida`, `denominacion`) VALUES (NULL, '".$datos['partida']."', '".$datos["denominacion"]."')";
          $this->_db->query($sql);
          $id=$this->_db->lastInsertId();
-         echo $sql = "INSERT INTO `aumento`  VALUES (NULL,$id,'".$datos["saldo"]."',now(),'Apertura de partida')";
+         echo $sql = "INSERT INTO operacion  VALUES (NULL,$id,'".$datos["saldo"]."',now(),'Apertura de partida','aum')";
          $this->_db->query($sql);
         
     } 
