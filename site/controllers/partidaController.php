@@ -24,6 +24,21 @@ class partidaController extends Controller
 							
 			
 	}
+	  public function v_debito()
+    {
+
+       
+			
+			$this->_view->setJs(array('v_debito'));
+			$this->_view->setCss(array(''));
+        		$this->_view->titulo = 'dibitos';
+        		$this->_view->_partidas = $this->_partida->get_all();
+
+
+			$this->_view->renderizar('v_debito');
+							
+			
+	}
 	  public function agregar()
     {
 
@@ -75,6 +90,9 @@ class partidaController extends Controller
 
 			$partidas[$i]["saldo_total"]=$acum_aumentos;
 			$partidas[$i]['saldo']=($acum_aumentos-$acum_descuentos);
+			$partidas[$i]["porciento"]=($acum_aumentos-$acum_descuentos)/($acum_aumentos/100);
+
+
 
 
 			}
@@ -119,8 +137,16 @@ class partidaController extends Controller
 	 public function guardar()
     	{
 
-       
+       print_r($_GET);
 			$this->_partida->guardar($_GET);
+					
+			
+	}
+	 public function guardar_operacion()
+    	{
+
+       print_r($_GET);
+			$this->_partida->guardar_operacion($_GET);
 					
 			
 	}

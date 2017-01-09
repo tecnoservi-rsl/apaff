@@ -27,27 +27,23 @@ txt moneda a decimal-sql  \
 function tranformar_moneda_format (cant) {
 
 cantt =cant.replace(/^\s+|\s+|\s+$/,"");
-   
 nework="";
 
     for (x=0;x<cantt.length;x++){
-
-    	
-
-
-    	if(cantt[x]!="B" && cantt[x]!="." && cantt[x]!="s" ){
-
+      if(cantt[x]!="B" && cantt[x]!="." && cantt[x]!="s" ){
     		nework+=cantt[x];	
-
-    	}
-
-    		
-    	
+    	}  		
     }
+var num="";
 
-console.log(nework);
-
-return nework;
+    for (x=0;x<nework.length;x++){
+      if(nework[x]==","){
+        num+="."; 
+      }else{
+        num+=nework[x];
+      }
+    }
+return num;
 	
 }
 

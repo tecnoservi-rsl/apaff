@@ -44,6 +44,17 @@ class partidaModel extends Model
          $this->_db->query($sql);
         
     } 
+     public function guardar_operacion($datos)
+    {
+        
+      echo $sql = "SELECT * FROM partidas WHERE partida='".$datos["partida"]."'";
+         $Rss=$this->_db->query($sql);
+         $rs=$Rss->fetch();
+         $id=$rs["id_partida"];
+         echo $sql = "INSERT INTO operacion  VALUES (NULL,$id,'".$datos["monto"]."',now(),'".$datos["descripcion"]."','desc')";
+         $this->_db->query($sql);
+        
+    } 
     public function actualizar($datos)
     {
         

@@ -9,8 +9,10 @@
 <tr>
 	<td>partida</td>
 	<td>denominacion</td>
-	<td>cantidad actual</td>
+	<td>cantidad actual --- % </td>
 	<td>cantidad total</td>
+	<td>Accion</td>
+
 </tr>
 <?php for ($i=0; $i <count($this->partidas) ; $i++):?>
 
@@ -18,8 +20,9 @@
 <tr>
 	<td> <div id="infor_partida" data-partida="<?php echo $this->partidas[$i]["partida"] ?>" data-toggle="tooltip" data-placement="top" title="detallar la partida" >  <?php echo $this->partidas[$i]["partida"] ?> </div> </td>
 	<td><div> </div><?php echo $this->partidas[$i]["denominacion"] ?></td>
-	<td>Bs <?php echo number_format($this->partidas[$i]["saldo"], 2, ",", "."); ?></td>
+	<td>Bs <?php echo number_format($this->partidas[$i]["saldo"], 2, ",", "."); ?> --- <?php echo number_format($this->partidas[$i]["porciento"], 2, ",", "."); ?> % </td>
 	<td>Bs <?php echo number_format($this->partidas[$i]["saldo_total"], 2, ",", "."); ?></td>
+	<td> <a href="">asd</a> </td>
 </tr>
 
 
