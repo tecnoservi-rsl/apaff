@@ -39,6 +39,44 @@ class partidaController extends Controller
 							
 			
 	}
+	  public function sumar($id)
+    {
+
+       
+			
+			$this->_view->setJs(array('sumar'));
+			$this->_view->setCss(array('sumar'));
+        		$this->_view->titulo = 'añadir credito';
+
+
+        		$acum_descuentos=0;
+       		$acum_aumentos=0;
+			$partida=$this->_partida->get_partida_for_id($id);
+			$aumentos=$this->_partida->get_operacion_for_partida($partida['id_partida']);
+			
+
+			for ($i=0; $i < count($aumentos) ; $i++) { 
+
+				if ($aumentos[$i]['tipo']=="aum") {
+					$acum_aumentos+=$aumentos[$i]["cantidad"];
+				}else{
+
+					$acum_descuentos+=$aumentos[$i]["cantidad"];
+				}
+				
+
+			}
+			
+
+			$partida['saldo']=($acum_aumentos-$acum_descuentos);
+
+        		$this->_view->_partida = $partida;
+
+
+			$this->_view->renderizar('v_credito');
+							
+			
+	}
 	  public function agregar()
     {
 

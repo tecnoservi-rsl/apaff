@@ -92,7 +92,17 @@ $(document).on('click', '#infor_partida', function(event) {
 
 	},"json");
 
-});				
+});	
+
+
+$(document).on('click', '#sumar', function(event) {
+					
+	console.log(this.dataset.id_partida);
+
+	location.href=base_url+"partida/sumar/"+this.dataset.id_partida;
+	
+
+});			
 
 
 

@@ -7,6 +7,14 @@ class partidaModel extends Model
     }
     
 
+   public function get_partida_for_id($id)
+    {
+        
+       $sql = "SELECT * FROM partidas WHERE id_partida='$id'";
+         $rs=$this->_db->query($sql);
+         $rs->setFetchMode(PDO::FETCH_ASSOC);
+            return $rs->fetch();
+    } 
 
    public function get_partida_for_partida($id)
     {
@@ -51,7 +59,7 @@ class partidaModel extends Model
          $Rss=$this->_db->query($sql);
          $rs=$Rss->fetch();
          $id=$rs["id_partida"];
-         echo $sql = "INSERT INTO operacion  VALUES (NULL,$id,'".$datos["monto"]."',now(),'".$datos["descripcion"]."','desc')";
+         echo $sql = "INSERT INTO operacion  VALUES (NULL,$id,'".$datos["monto"]."',now(),'".$datos["descripcion"]."','".$datos["tipo"]."')";
          $this->_db->query($sql);
         
     } 

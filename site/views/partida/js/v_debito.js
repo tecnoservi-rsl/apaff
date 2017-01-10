@@ -31,11 +31,12 @@ $(document).ready(function(){
 
 			"partida" : $("#partida").val(),
 			"descripcion" : $("#descripcion").val(),
-			"monto" : tranformar_moneda_format($("#saldo_d").val())
+			"monto" : tranformar_moneda_format($("#saldo_d").val()),
+			"tipo":"desc"
 
 		},function(){
 
-			       //location.reload(true);
+			       location.reload(true);
 
 		});
 	});

@@ -9,3 +9,10 @@
 	font-size: 10px;
 
 }
+#sumar {
+	cursor: pointer;
+}
+#sumar:hover {
+	cursor: pointer;
+	color: #00f9;
+}
