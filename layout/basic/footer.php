@@ -4,7 +4,7 @@
         <div class="container">
         <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <?php echo APP_SLOGAN ?></div>
         <div class="col-xs-12 col-md-4">Copyright <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> 2001-2016 </div>
-        <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> web desarrollada por grupo <?php echo APP_NAME ?></div>
+        <div class="col-xs-12 col-md-4"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> web desarrollada por grupo <?php echo APP_COMPANY ?></div>
           
         </div>
     </section>

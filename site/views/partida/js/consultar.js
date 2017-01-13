@@ -27,15 +27,15 @@ $(document).on('click', '#infor_partida', function(event) {
 		html += '<table class="table table-bordered">';
 		html += '<tr><td colspan="5">'+data.partida+' ('+data.denominacion+')</td></tr>';
 		html += '<tr>';
-		html += '<td> nro de operacion';
+		html += '<td> Nro de operacion';
 		html += '</td>';
-		html += '<td> comentario';
+		html += '<td> Comentario';
 		html += '</td>';
-		html += '<td> fecha';
+		html += '<td> Fecha';
 		html += '</td>';
-		html += '<td> debito';
+		html += '<td> Debito';
 		html += '</td>';
-		html += '<td> credito';
+		html += '<td> Credito';
 		html += '</td>';
 		html += '</tr>';
 
@@ -45,7 +45,7 @@ $(document).on('click', '#infor_partida', function(event) {
 		for (var i = 0 ; i < data.operacion.length; i++) {
 			
 		html += '<tr>';
-		html += '<td> '+i;
+		html += '<td> '+(i+1);
 		html += '</td>';
 		html += '<td> '+data.operacion[i].comentario;
 		html += '</td>';
