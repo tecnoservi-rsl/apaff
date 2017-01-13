@@ -9,7 +9,8 @@
  */
 
 
-define('BASE_URL', 'http://localhost/apaff/');
+//define('BASE_URL', 'http://localhost/apaff/');
+define('BASE_URL', 'http://www.fundafamilia.esy.es/');
 //define('BASE_URL', 'http://192.168.0.5/didactico/');
 //define('BASE_URL', 'http://americas89.no-ip.info:8080/didactico/');
 define('DEFAULT_CONTROLLER', 'login');
