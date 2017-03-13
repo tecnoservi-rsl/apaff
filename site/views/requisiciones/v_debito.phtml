@@ -1,0 +1,75 @@
+	<div  class="col-xs-10 col-sm-10 col-md-10 col-lg-10  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+		<div class="header-titulos"> Debitos </div>
+		
+		
+
+		<div class="">
+
+			<form class="form-horizontal" id="form_partida" autocomplete="off">
+			  
+			  <div class="form-group">
+			    <label for="" class="col-sm-2 control-label">Partida</label>
+			    <div class="col-sm-10">
+			      
+				<select name="partida" id="partida" class="form-control">
+					<option value="">--Seleccione--</option>
+					<?php for ($i=0; $i < count($this->_partidas) ; $i++):?>
+						
+						<option data-id="hola" value="<?php echo $this->_partidas[$i]['partida'] ?>"><?php echo $this->_partidas[$i]['partida'] ?></option>
+						
+					<?php endfor; ?>
+				</select>
+			     
+
+
+			    </div>
+			  </div>
+
+			    <div class="form-group">
+			    <label for="" class="col-sm-2 control-label">Denominación</label>
+			    <div class="col-sm-10">
+			      <input type="text" disabled="true" class="form-control" id="denominacion" name="denominacion" placeholder="nombre de la partida">
+			    </div>
+			  </div>
+
+			<div class="form-group">
+			    <label for="" class="col-sm-2 control-label">Saldo</label>
+			    <div class="col-sm-10">
+			      <input type="text" disabled="true" class="form-control" id="saldo_t" name="saldo_t" placeholder="">
+			    </div>
+			  </div>
+
+
+
+			   <div class="form-group">
+			    <label for="" class="col-sm-2 control-label">descripcion</label>
+			    <div class="col-sm-10">
+			      <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+			    </div>
+			  </div>
+			   <div class="form-group">
+			    <label for="" class="col-sm-2 control-label">mosnto a debitar</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="saldo_d" name="saldo_d" placeholder="cantidad expresada en Bs." data-a-sign="Bs " data-a-dec="," data-a-sep=".">
+			    </div>
+			  </div>
+			   
+
+			
+			
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="button" id="guardar" class="btn btn-default">guardar</button>
+			      
+			      <button type="button" id="atras" class="btn btn-default" onclick="history.back()">atras</button>
+			    </div>
+			  </div>
+			</form>
+
+
+			
+		</div>
+
+	</div>
+
+

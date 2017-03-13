@@ -1,0 +1,12 @@
+*estados de la requisicion 
+para el usuario compra
+recibida
+pasar a presupuesto
+cancelar
+
+*ver requisiciones (editar, eliminar)
+
+
+usuario compra
+*modulo de armar propuestas presupuestarias
+*modulo de cambiar estatus de requisicion

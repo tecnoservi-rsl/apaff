@@ -19,7 +19,7 @@ class partidaController extends Controller
 			
 			$this->_view->setJs(array('index'));
 			$this->_view->setCss(array('css'));
-        		$this->_view->titulo = 'partidas';
+        	$this->_view->titulo = 'partidas';
 			$this->_view->renderizar('index');
 							
 			
@@ -196,7 +196,8 @@ class partidaController extends Controller
 					
 			
 	}
-	  public function get_partida_all()
+	 
+	public function get_partida_all()
     	{
 
        		
@@ -208,7 +209,22 @@ class partidaController extends Controller
 	echo json_encode($partida);			
 			
 	}
-		
+	
+	public function get_partidas_for_departamento()
+    	{
+
+       		
+	$partida=$this->_partida->get_partidas_for_departamento($_GET['id']);
+	echo json_encode($partida);			
+			
+	}
+
+	public function get_departamentos(){
+      		
+	$departamentos=$this->_partida->get_departamentos();
+	echo json_encode($departamentos);			
+			
+	}	
 	
 }
 

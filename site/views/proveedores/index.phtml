@@ -1,0 +1,38 @@
+<div class="col-xs-10 col-sm-8 col-md-8 col-lg-8  col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+
+    <div class="header-titulos">REGISTRAR PROVEEDORES</div>
+
+
+	<div class="row">
+	
+
+		<form id="form_registro" action="<?php echo BASE_URL?>proveedores/guardar_proveedores" method="POST">
+  			  
+			<div class="form-group">
+			    <label class="">Nombre del proveedor</label>
+			    <input type="text" class="form-control" name="nombre_proveedor" id="nombre_proveedor" placeholder="NOMBRE DEL PROVEEDOR">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Direccion</label>
+			    <textarea id="direccion_proveedor" name="direccion_proveedor" class="form-control"></textarea>
+			</div>
+			  
+			<div class="form-group">
+			    <label class="">Telefono del proveedor</label>
+			    <input type="text" class="form-control" name="telefono_proveedor" id="telefono_proveedor" placeholder="TELEFONO DEL PROVEEDOR">
+			</div> 			   
+			  
+			<div class="form-group">
+			 <center>
+			      <button type="submit" class="btn btn-primary">REGISTRAR</button>
+			      <a href="<?php echo BASE_URL;?>"> REGRESAR </a>
+			 </center>
+			</div>
+
+		</form>
+
+	</div>
+
+
+</div>

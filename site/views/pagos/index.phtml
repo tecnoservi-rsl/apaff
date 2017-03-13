@@ -1,0 +1,83 @@
+<div class="col-xs-10 col-sm-8 col-md-8 col-lg-8  col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+
+    <div class="header-titulos">REGISTRAR ORDEN DE PAGO</div>
+
+
+	<div class="row">
+	
+
+		<form id="form_registro" action="<?php echo BASE_URL?>pagos/guardar_pagos" method="POST">
+  			  
+			<div class="form-group">
+			    <label class="">Nro de la orden de pago</label>
+			    <input type="text" class="form-control" name="nro_orden" id="nro_orden" placeholder="">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Monto</label>
+			    <input type="text" class="form-control" name="monto_orden" id="monto_orden">
+			</div>
+			  
+			<div class="form-group">
+			    <label class="">Beneficiario</label>
+			    <input type="text" class="form-control" name="nombre_beneficiario" id="nombre_beneficiario">
+			</div> 
+
+			<div class="form-group">
+			    <label class="">C.I/RIF del Beneficiario</label>
+			    <input type="text" class="form-control" name="id_beneficiario" id="id_beneficiario">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Autorizado</label>
+			    <input type="text" class="form-control" name="nombre_autorizado" id="nombre_autorizado">
+			</div> 
+
+			<div class="form-group">
+			    <label class="">C.I/RIF del Autorizado</label>
+			    <input type="text" class="form-control" name="id_autorizado" id="id_autorizado">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Cantidad a cobrar en letras</label>
+			    <input type="text" class="form-control" name="cantidad_letras" id="cantidad_letras">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Concepto de pago</label>
+			    <input type="text" class="form-control" name="concepto_pago" id="concepto_pago">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Partida</label>
+			    <input type="text" class="form-control" name="nro_partida" id="nro_partida">
+			</div>   
+			
+			<div class="form-group">
+			    <label class="">Entidad bancaria</label>
+			    <input type="text" class="form-control" name="entidad_bancaria" id="entidad_bancaria">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Nro de cheque</label>
+			    <input type="text" class="form-control" name="nro_cheque" id="nro_cheque">
+			</div>
+
+			<div class="form-group">
+			    <label class="">Nro de cuenta</label>
+			    <input type="text" class="form-control" name="nro_cuenta" id="nro_cuenta">
+			</div>   
+			  
+			<div class="form-group">
+			 <center>
+			      <button type="submit" class="btn btn-primary">REGISTRAR</button>
+			      <a href="<?php echo BASE_URL;?>"> REGRESAR </a>
+			 </center>
+			</div>
+
+		</form>
+
+	</div>
+
+
+</div>

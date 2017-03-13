@@ -24,6 +24,15 @@ class partidaModel extends Model
          $rs->setFetchMode(PDO::FETCH_ASSOC);
             return $rs->fetch();
     } 
+
+    public function get_partidas_for_departamento($id)
+    {
+        
+        $sql = "SELECT * FROM partidas WHERE id_departamentos='$id'";
+            $rs=$this->_db->query($sql);        
+                return $rs->fetchall();
+    }
+
      public function get_all()
     {
         
@@ -45,7 +54,7 @@ class partidaModel extends Model
     public function guardar($datos)
     {
         
-      $sql = "INSERT INTO `partidas` (`id_partida`, `partida`, `denominacion`) VALUES (NULL, '".$datos['partida']."', '".$datos["denominacion"]."')";
+    echo  $sql = "INSERT INTO `partidas` (`id_partida`, `partida`, `denominacion`, `id_departamentos`) VALUES (NULL, '".$datos['partida']."', '".$datos["denominacion"]."', '".$datos["departamento"]."')";
          $this->_db->query($sql);
          $id=$this->_db->lastInsertId();
          echo $sql = "INSERT INTO operacion  VALUES (NULL,$id,'".$datos["saldo"]."',now(),'Apertura de partida','aum')";
@@ -59,21 +68,27 @@ class partidaModel extends Model
          $Rss=$this->_db->query($sql);
          $rs=$Rss->fetch();
          $id=$rs["id_partida"];
-         echo $sql = "INSERT INTO operacion  VALUES (NULL,$id,'".$datos["monto"]."',now(),'".$datos["descripcion"]."','".$datos["tipo"]."')";
+        echo  $sql = "INSERT INTO operacion  VALUES (NULL,$id,'".$datos["monto"]."',now(),'".$datos["descripcion"]."','".$datos["tipo"]."')";
          $this->_db->query($sql);
         
     } 
     public function actualizar($datos)
     {
         
- $sql = "UPDATE `partidas` SET `denominacion` = '".$datos["denominacion"]."' WHERE partida ='".$datos["partida"]."' ";
+ echo $sql = "UPDATE `partidas` SET `denominacion` = '".$datos["denominacion"]."' WHERE partida ='".$datos["partida"]."' ";
          $this->_db->query($sql);
         
     
         
     } 
 
-
+public function get_departamentos()
+    {
+        
+       $sql = "SELECT * FROM departamento";
+        $rs=$this->_db->query($sql);
+        return $rs->fetchall();
+    } 
 
 
 }
