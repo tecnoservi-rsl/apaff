@@ -41,7 +41,7 @@ function mostrar_pagos(nombre){
 			html+="<td>" + datos[i].nombre_autorizado + "</td>";
 			html+="<td>" + datos[i].monto_orden + "</td>";
 			html+="<td><a id='eliminar_pagos' data-toggle='tooltip' data-placement='bottom' title='Eliminar Pagos' data-id_pago='"+datos[i].id_pago+"'>";
-			html+="<span class='glyphicon glyphicon-trash'></span></a>";
+			html+="<span class='glyphicon glyphicon-trash'></span></a>&nbsp;&nbsp;&nbsp;";
 			html+="<a data-placement='bottom' id='pdf_pago' title='PDF Pagos' data-id_pago'"+datos[i].id_pago+"'";
 			html+="<span class='glyphicon glyphicon-file'></span></a></td>";
 			}

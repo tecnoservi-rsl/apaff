@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-03-2017 a las 00:19:23
+-- Tiempo de generación: 13-03-2017 a las 19:10:27
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.5.19
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `metodo` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1667 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1757 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -1714,7 +1714,97 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 (1663, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '23:19:53'),
 (1664, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '23:19:53'),
 (1665, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '23:35:50'),
-(1666, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '23:35:50');
+(1666, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '23:35:50'),
+(1667, NULL, '127.0.0.1', 'login', 'index', '2017-03-13', '17:46:17'),
+(1668, NULL, '127.0.0.1', 'login', 'index', '2017-03-13', '17:46:24'),
+(1669, 4, '127.0.0.1', 'login', 'index', '2017-03-13', '17:46:24'),
+(1670, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '17:46:24'),
+(1671, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '17:48:39'),
+(1672, 4, '127.0.0.1', 'pagos', 'ordenes_pago', '2017-03-13', '17:54:45'),
+(1673, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '17:54:48'),
+(1674, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:11:55'),
+(1675, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:19:50'),
+(1676, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:29:53'),
+(1677, 4, '127.0.0.1', 'proveedores', 'guardar_pagos', '2017-03-13', '18:31:07'),
+(1678, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:31:27'),
+(1679, 4, '127.0.0.1', 'proveedores', 'guardar_pagos', '2017-03-13', '18:33:29'),
+(1680, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:33:37'),
+(1681, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:33:39'),
+(1682, 4, '127.0.0.1', 'pagos', 'guardar_pagos', '2017-03-13', '18:34:48'),
+(1683, 4, '127.0.0.1', 'pagos', 'guardar_pagos', '2017-03-13', '18:35:16'),
+(1684, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:36:20'),
+(1685, 4, '127.0.0.1', 'pagos', 'guardar_pagos', '2017-03-13', '18:37:01'),
+(1686, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:41:47'),
+(1687, 4, '127.0.0.1', 'login', 'index', '2017-03-13', '18:52:35'),
+(1688, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '18:52:35'),
+(1689, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '18:52:40'),
+(1690, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '18:59:04'),
+(1691, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:14'),
+(1692, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:14'),
+(1693, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:17'),
+(1694, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:17'),
+(1695, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:18'),
+(1696, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:03'),
+(1697, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:05'),
+(1698, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:05'),
+(1699, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:06'),
+(1700, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:06'),
+(1701, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:06'),
+(1702, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:39'),
+(1703, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1704, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1705, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1706, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1707, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1708, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:03:41'),
+(1709, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:01'),
+(1710, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:02'),
+(1711, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:03'),
+(1712, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:03'),
+(1713, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:03'),
+(1714, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:23'),
+(1715, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:13'),
+(1716, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:16'),
+(1717, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:18'),
+(1718, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:19'),
+(1719, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1720, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1721, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1722, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1723, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1724, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:25'),
+(1725, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:27'),
+(1726, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:28'),
+(1727, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:28'),
+(1728, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:28'),
+(1729, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:52'),
+(1730, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:05:55'),
+(1731, 4, '127.0.0.1', 'login', 'index', '2017-03-13', '19:22:12'),
+(1732, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '19:22:12'),
+(1733, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:22:24'),
+(1734, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:29'),
+(1735, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:32'),
+(1736, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:32'),
+(1737, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:32'),
+(1738, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:33'),
+(1739, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:24:50'),
+(1740, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:24:56'),
+(1741, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:24:57'),
+(1742, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:24:58'),
+(1743, 4, '127.0.0.1', 'pagos', 'eliminar_pago', '2017-03-13', '19:25:04'),
+(1744, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:25:06'),
+(1745, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:25:17'),
+(1746, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:26:30'),
+(1747, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:26:55'),
+(1748, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:27:23'),
+(1749, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:27:43'),
+(1750, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:28:08'),
+(1751, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:31:14'),
+(1752, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:39:36'),
+(1753, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:39:43'),
+(1754, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:39:51'),
+(1755, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:39:54'),
+(1756, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:39:56');
 
 -- --------------------------------------------------------
 
@@ -1750,6 +1840,35 @@ CREATE TABLE IF NOT EXISTS `operacion` (
 INSERT INTO `operacion` (`id_aumento`, `id_partida`, `cantidad`, `fecha`, `comentario`, `tipo`) VALUES
 (49, 47, '6000000.00', '2017-03-01 12:43:18', 'Apertura de partida', 'aum'),
 (50, 48, '99999999.99', '2017-03-01 12:44:44', 'Apertura de partida', 'aum');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pagos`
+--
+
+CREATE TABLE IF NOT EXISTS `pagos` (
+`id_pago` int(11) NOT NULL,
+  `nro_orden` varchar(100) COLLATE utf8_bin NOT NULL,
+  `monto_orden` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nombre_beneficiario` varchar(200) COLLATE utf8_bin NOT NULL,
+  `id_beneficiario` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nombre_autorizado` varchar(200) COLLATE utf8_bin NOT NULL,
+  `id_autorizado` varchar(100) COLLATE utf8_bin NOT NULL,
+  `cantidad_letras` varchar(300) COLLATE utf8_bin NOT NULL,
+  `concepto_pago` varchar(500) COLLATE utf8_bin NOT NULL,
+  `nro_partida` varchar(200) COLLATE utf8_bin NOT NULL,
+  `entidad_bancaria` varchar(300) COLLATE utf8_bin NOT NULL,
+  `nro_cheque` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nro_cuenta` varchar(100) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `pagos`
+--
+
+INSERT INTO `pagos` (`id_pago`, `nro_orden`, `monto_orden`, `nombre_beneficiario`, `id_beneficiario`, `nombre_autorizado`, `id_autorizado`, `cantidad_letras`, `concepto_pago`, `nro_partida`, `entidad_bancaria`, `nro_cheque`, `nro_cuenta`) VALUES
+(2, '001', '10000', 'ANGEL CHARLOT', '20574205', 'angel charlot', '20574205', 'diez mil bolivares exactos', 'por nutria', '546879454', 'banco de venezuela', '54786', '5454654654');
 
 -- --------------------------------------------------------
 
@@ -1925,6 +2044,12 @@ ALTER TABLE `operacion`
  ADD PRIMARY KEY (`id_aumento`), ADD KEY `id_partidas` (`id_partida`);
 
 --
+-- Indices de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+ ADD PRIMARY KEY (`id_pago`);
+
+--
 -- Indices de la tabla `partidas`
 --
 ALTER TABLE `partidas`
@@ -1979,7 +2104,7 @@ MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1667;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1757;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
@@ -1990,6 +2115,11 @@ MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `operacion`
 MODIFY `id_aumento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+--
+-- AUTO_INCREMENT de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `partidas`
 --
