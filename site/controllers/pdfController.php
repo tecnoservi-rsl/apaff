@@ -3,20 +3,12 @@
 class pdfController extends Controller
 {
     private $_pdf;
-	private $_alumno;
+	
     public function __construct() {
         parent::__construct();
         $this->getLibrary('fpdf');
-		$this->_orden_de_pago=$this->loadModel('orden_de_pago');
-		$this->_proveedor=$this->loadModel('proveedor');
-		$this->_banco=$this->loadModel('banco');
-		$this->includeModel('pago');
-		$this->includeModel('transferencia');
-		$this->includeModel('cheque');
-		$this->includeModel('chequera');
-		$this->includeModel('factura');
-		$this->includeModel('retencion');
-		$this->includeModel('descuento');
+//		$this->_orden_de_pago=$this->loadModel('orden_de_pago');
+
 				
         $this->_pdf = new fpdf;
     }
@@ -32,111 +24,108 @@ class pdfController extends Controller
 		}       
 		return $array_orden;
 	}
-    public function generar_orden($id_factura,$rif,$id_orden){
+    public function generar_orden(){
 
-			$factura= new factura;
+			
 
-			$factura->cargar_bd($id_factura);
-
-			$this->_proveedor->_factura=$factura;
-
-			$this->_proveedor->cargar_bd_rif($rif);
-
-			$this->_orden_de_pago->cargar_bd($id_orden);
 
 			//print_r($this->_orden_de_pago);
 
 			$this->_pdf->AddPage();
-			$this->_pdf->SetFont('Arial','B',12);
-
-
-			$this->_pdf->SetFont('Arial','B',12);
-			$this->_pdf->Cell(190,8, utf8_decode('orden de pago'),0,1,'C');
+			
+			$this->_pdf->SetFont('Arial','B',8);
+			$this->_pdf->Cell(190,4, utf8_decode('REPUBLICA BOLIVARIANA DE VENEZUELA'),0,1,'C');
+			$this->_pdf->Cell(190,4, utf8_decode('FUNDACION MUNICIPAL PARA LA INNOVACION, CIENCIA Y TECNOLOGIA'),0,1,'C');
+			$this->_pdf->Cell(190,4, utf8_decode('CUMANÁ-EDO-SUCRE'),0,1,'C');
+			$this->_pdf->Cell(190,4, utf8_decode('G-200111268'),0,1,'C');
 			$this->_pdf->Ln(15);
 			$this->_pdf->SetFont('Arial','',10);
-			$this->_pdf->Cell(63,4, utf8_decode('numero de orden : '.$this->_orden_de_pago->_id ),0,0,'C');
-			$this->_pdf->Cell(62,4, utf8_decode('fecha de emicion : '.$this->_orden_de_pago->_fecha_emicion ),0,0,'C');
-			$this->_pdf->Cell(62,4, utf8_decode('numero de factura : '.$this->_proveedor->_factura->_id ),0,1,'C');
-			$this->_pdf->SetFont('Arial','B',12);
-			$this->_pdf->Ln(8);
-			$this->_pdf->Cell(190,4, utf8_decode("datos de proveedor"),0,1,'C');
-			$this->_pdf->Ln(8);
+			$this->_pdf->Cell(190,8,utf8_decode('Orden de pago nro XXXXXXXX'),0,1,'C');
 			$this->_pdf->SetFont('Arial','',8);
-			$this->_pdf->Cell(40,4, utf8_decode('nombre  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_nombre ),0,1,'L');
-			$this->_pdf->Cell(40,4, utf8_decode('beneficiario  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_beneficiario ),0,1,'L');
-			$this->_pdf->Cell(40,4, utf8_decode('Rif  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_rif ),0,1,'L');		
-			$this->_pdf->Cell(40,4, utf8_decode('contacto  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_contacto ),0,1,'L');
-			$this->_pdf->Cell(40,4, utf8_decode('direccion  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_direccion ),0,1,'L');
-			$this->_pdf->Cell(40,4, utf8_decode('tipo de cretito  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_tipo_credito ),0,1,'L');
-			$this->_pdf->Cell(40,4, utf8_decode('porcentaje de retencion  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_porcentaje_retencion."%" ),0,1,'L');
-			$this->_pdf->Cell(40,4, utf8_decode('telefono  '),0,0,'L');
-			$this->_pdf->Cell(40,4, utf8_decode(': '.$this->_proveedor->_tlf ),0,1,'L');
+			$this->_pdf->Cell(47,4,utf8_decode('Fecha de solicitud:'),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode('(xx/xx/xxxx)'),0,0,'L');
+			$this->_pdf->Cell(45,4,utf8_decode('Monto:'),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode('xxxxxx'),0,1,'L');
+			$this->_pdf->Ln(15);
+			$this->_pdf->Cell(47,4,utf8_decode('Beneficiario:'),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode('xxxxxxxxxxxxxxx'),0,0,'L');
+			$this->_pdf->Cell(45,4,utf8_decode('C.I/RIF:'),0,0,'L');
+			$this->_pdf->Cell(47,8,utf8_decode('xxxxxxxxxxxxxxx'),0,1,'L');
+			$this->_pdf->Cell(47,4,utf8_decode('Autorizado:'),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode('xxxxxxxxxxxxxxx'),0,0,'L');
+			$this->_pdf->Cell(45,4,utf8_decode('C.I/RIF:'),0,0,'L');
+			$this->_pdf->Cell(47,8,utf8_decode('xxxxxxxxxxxxxxx'),0,1,'L');
 
-			$this->_pdf->SetFont('Arial','B',12);
-			$this->_pdf->Ln(8);
-			$this->_pdf->Cell(190,4, utf8_decode("detalles de la factura"),0,1,'C');
-			$this->_pdf->Ln(8);
-			$this->_pdf->SetFont('Arial','',8);
+			$this->_pdf->Cell(47,4,utf8_decode('Autorizado al cobor la cantidad de:'),0,0,'L');
+			$this->_pdf->Cell(140,4,utf8_decode('xxxxxxxxxxxxxxx'),'B',1,'L');
+			
+			$this->_pdf->Cell(47,4,utf8_decode('Por concepto de:'),0,0,'L');		
+			$this->_pdf->Multicell(140,4,utf8_decode('xxxxxxxxxxxxxxx'),'B','J');
+			$this->_pdf->Ln(10);
 
-			$this->_pdf->Cell(52,4, utf8_decode('nro de control  '),0,0,'L');
-			$this->_pdf->Cell(52,4, utf8_decode('elavoracion  '),0,0,'L');
-			$this->_pdf->Cell(43,4, utf8_decode('recepcion  '),0,0,'L');
-			$this->_pdf->Cell(43,4, utf8_decode('vence  '),0,1,'L');
-			$this->_pdf->Cell(52,4, utf8_decode($this->_proveedor->_factura->_nro_control),0,0,'L');
-			$this->_pdf->Cell(52,4, utf8_decode($this->_proveedor->_factura->_fecha_elavoracion),0,0,'L');
-			$this->_pdf->Cell(43,4, utf8_decode($this->_proveedor->_factura->_fecha_recepcion),0,0,'L');
-			$this->_pdf->Cell(43,4, utf8_decode($this->_proveedor->_factura->_fecha_vencimiento),0,1,'L');
-			$this->_pdf->Ln(8);
-
-			$this->_pdf->Cell(26,4, utf8_decode('cantidad  '),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode('descuento  '),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode('sub total  '),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode('iva  '),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode('total  '),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode('ret. iva  '),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode('neto a pagar  '),0,1,'L');
-			$this->_pdf->Cell(26,4, utf8_decode($this->_proveedor->_factura->_monto),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode($this->_proveedor->_factura->_descuento),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode($this->_proveedor->_factura->_sub_total),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode(($this->_proveedor->_factura->_sub_total/100)*$this->_proveedor->_factura->_impuesto),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode($this->_proveedor->_factura->_total),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode($this->_proveedor->_factura->_retencion->_retencion),0,0,'L');
-			$this->_pdf->Cell(26,4, utf8_decode(($this->_proveedor->_factura->_total)-($this->_proveedor->_factura->_retencion->_retencion)),0,0,'L');
+			$this->_pdf->Cell(190,8,utf8_decode('PARTIDAS PRESUPUESTARIAS:'),0,1,'L');
 
 
-			$this->_pdf->SetFont('Arial','B',12);
+			$this->_pdf->Cell(20,4,utf8_decode('Partida'),0,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('Genérica'),0,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('Específica'),0,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('Sub-específica'),0,1,'L');
+
+			$this->_pdf->Cell(20,4,utf8_decode('4.04'),1,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('12'),1,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('23'),1,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('00'),1,1,'L');
+
+			$this->_pdf->Ln(10);
+
+			$this->_pdf->Cell(190,8,utf8_decode('AUTORIZA:'),0,1,'L');
+
+			$this->_pdf->Cell(32,8,utf8_decode(''),0,0,'C');
+			$this->_pdf->Cell(47,8,utf8_decode(''),'B',0,'C');
+			$this->_pdf->Cell(32,8,utf8_decode(''),0,0,'C');
+			$this->_pdf->Cell(47,8,utf8_decode(''),'B',0,'C');
+			$this->_pdf->Cell(32,8,utf8_decode(''),0,1,'C');
+			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('Asdrubal melendes'),0,0,'C');
+			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('Alejandro gonzalez'),0,0,'C');
+			$this->_pdf->Cell(32,4,utf8_decode(''),0,1,'C');
+			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('administrador'),0,0,'C');
+			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('presidente'),0,0,'C');
+			$this->_pdf->Cell(32,4,utf8_decode(''),0,1,'C');
 
 
-			$this->_pdf->Cell(190,4, utf8_decode('descuentos y datos bancarios'),0,1,'C');
-			$this->_pdf->SetFont('Arial','',8);
-			$this->_pdf->Ln(8);
+			$this->_pdf->Ln(10);
 
-			$this->_pdf->Cell(40,6, utf8_decode('pronto pago'),0,0,'L');
-			$this->_pdf->Cell(40,6, utf8_decode('Bs'),1,1,'R');
-			$this->_pdf->Ln(2);
-			$this->_pdf->Cell(40,6, utf8_decode('pares dañados'),0,0,'L');
-			$this->_pdf->Cell(40,6, utf8_decode('Bs'),1,1,'R');	
-			$this->_pdf->Ln(2);	
-			$this->_pdf->Cell(40,6, utf8_decode('pares faltantes'),0,0,'L');
-			$this->_pdf->Cell(40,6, utf8_decode('Bs'),1,1,'R');
-			$this->_pdf->Ln(2);
-			$this->_pdf->Cell(40,6, utf8_decode('banco'),0,0,'L');
-			$this->_pdf->Cell(40,6, utf8_decode(''),1,1,'R');
-			$this->_pdf->Ln(2);
-			$this->_pdf->Cell(40,6, utf8_decode('tipo de pago'),0,0,'L');
-			$this->_pdf->Cell(40,6, utf8_decode(''),1,1,'R');
-			$this->_pdf->Ln(2);
-			$this->_pdf->Cell(40,6, utf8_decode('abono'),0,0,'L');
-			$this->_pdf->Cell(40,6, utf8_decode('Bs'),1,1,'R');
+			$this->_pdf->Cell(63,4,utf8_decode('Entidad Bancaria:'),0,0,'C');
+			$this->_pdf->Cell(63,4,utf8_decode('Nº Cheque:'),0,0,'C');
+			$this->_pdf->Cell(63,4,utf8_decode('Nº de Cuenta:'),0,1,'C');
+			$this->_pdf->Cell(63,8,utf8_decode(''),1,0,'C');
+			$this->_pdf->Cell(63,8,utf8_decode(''),1,0,'C');
+			$this->_pdf->Cell(63,8,utf8_decode(''),1,1,'C');
+
+			$this->_pdf->Ln(10);
+
+			$this->_pdf->Cell(47,4,utf8_decode('Nombre:'),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('C.I.'),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('Fecha'),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('Conforme'),0,1,'C');
+			$this->_pdf->Cell(47,8,utf8_decode(''),1,0,'C');
+			$this->_pdf->Cell(47,8,utf8_decode(''),1,0,'C');
+			$this->_pdf->Cell(47,8,utf8_decode(''),1,0,'C');
+			$this->_pdf->Cell(47,8,utf8_decode(''),1,1,'C');
 
 
+			$this->_pdf->Ln(10);
+			$this->_pdf->SetFont('Arial','B',8);
+
+			$this->_pdf->Cell(190,8,utf8_decode('IMPORTANTE'),0,1,'C');
+			$this->_pdf->SetFont('Arial','',6);
+			$this->_pdf->Multicell(190,4,utf8_decode('(1) Cuando el beneficiario sea un empleado del IMBISO al recibir el cheque se obliga a comprobar el concepto y el monto autorizado, de existir alguna diferencia debera presentar el reclamo, en un periodo no mayor a 8 días continuos contados a partir de la fecha de recepción del cheque.'),0,'J');
+			$this->_pdf->Multicell(190,4,utf8_decode('Cuando el beneficiario sea una empresa nacional o extranjera debe estar anexa copia de la factura a esta orden de Pago, en caso contrario que el proveedor manifieste que entregará la factura contra el cheque en administración, el solicitante será el responsable de recuperar la documentación comprobatoria y remitirla a la administracion de la institucion.'),0,'J');
+			$this->_pdf->Multicell(190,4,utf8_decode('(2) Especificar claramente el concepto de gastos, el cual deberá corresponder a la documentación fiscal comprobatoria que se entregará en  Administracion en un plazo no mayor a 8 días continuos, contados a partir de la fecha de recepción del cheque.'),0,'J');
 
 
 

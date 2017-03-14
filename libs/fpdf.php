@@ -380,13 +380,12 @@ function Header()
         // Arial italic 8 
         $this->SetFont('Arial','',6); 
         // Número de página 
-        $this->setx(($this->w)-60);
-         $this->Cell(50,4,$date,0,0,'L'); 
+        //$this->setx(($this->w)-30);
+        //$this->Cell(50,4,$date,0,0,'L'); 
         $this->ln();      
-        $this->setx(($this->w)-60);
+        $this->setx(($this->w)-30);
         $this->Cell(40,4,'Pagina :'.$this->PageNo(),0,0,'L');
-         $this->setx(10);
-        $this->Cell(40,4,'KEIKO C.A.',0,0,'L');
+         
    
         $this->ln();  
 
