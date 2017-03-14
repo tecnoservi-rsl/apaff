@@ -9,8 +9,8 @@ class pagosModel extends Model
    
     public function guardar_pagos($datos)
     {
-        
-		echo $sql="insert into pagos 
+       
+	   $sql="insert into pagos 
         values ('',
         '".$datos['nro_orden']."',
         '".$datos['monto_orden']."',
@@ -20,11 +20,17 @@ class pagosModel extends Model
         '".$datos['id_autorizado']."',
         UPPER('".$datos['cantidad_letras']."'),
         UPPER('".$datos['concepto_pago']."'),
-        '".$datos['nro_partida']."',
         UPPER('".$datos['entidad_bancaria']."'),
         '".$datos['nro_cheque']."',
         '".$datos['nro_cuenta']."')";
         $this->_db->query($sql);
+        $id=$this->_db->lastInsertId();
+        for ($i=0; $i <count($datos['partidas']); $i++) { 
+            $sql="insert into pagos_partidas values ('$id', '".$datos['partidas'][$i]."')";
+            $this->_db->query($sql);
+            }
+       return $id;
+
 		
         	
     }

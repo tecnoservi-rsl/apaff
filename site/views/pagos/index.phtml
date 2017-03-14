@@ -49,10 +49,25 @@
 			</div>
 
 			<div class="form-group">
-			    <label class="">Partida</label>
-			    <input type="text" class="form-control" name="nro_partida" id="nro_partida">
-			</div>   
-			
+			    <label for="" >Partida</label>			    
+			     <select id="select_partidas">
+			     	<option value="">---Seleccione--</option>
+			     </select>
+			     <span class="input-group-btn">
+			        <button class="btn btn-primary" id="btn_agregar" type="button" title="Agregar Partida">
+			        	<span class="glyphicon glyphicon-plus"></span>
+			        </button>
+	      		 </span>		  
+			</div> 
+			<div id="tabla_partidas">
+				<table id="previa" class="table table-striped">
+					<tr>
+						<td>Partida</td>
+						<td>Eliminar</td>
+					</tr>
+				</table>
+			</div>
+
 			<div class="form-group">
 			    <label class="">Entidad bancaria</label>
 			    <input type="text" class="form-control" name="entidad_bancaria" id="entidad_bancaria">
@@ -70,7 +85,7 @@
 			  
 			<div class="form-group">
 			 <center>
-			      <button type="submit" class="btn btn-primary">REGISTRAR</button>
+			      <button type="button" id="guardar" class="btn btn-primary">REGISTRAR</button>
 			      <a href="<?php echo BASE_URL;?>"> REGRESAR </a>
 			 </center>
 			</div>
