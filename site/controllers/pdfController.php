@@ -7,7 +7,7 @@ class pdfController extends Controller
     public function __construct() {
         parent::__construct();
         $this->getLibrary('fpdf');
-//		$this->_orden_de_pago=$this->loadModel('orden_de_pago');
+		
 
 				
         $this->_pdf = new fpdf;
@@ -24,12 +24,17 @@ class pdfController extends Controller
 		}       
 		return $array_orden;
 	}
-    public function generar_orden(){
+    public function generar_orden($id_pago){
 
 			
 
 
-			//print_r($this->_orden_de_pago);
+			$pago=$this->loadModel('pagos');
+			$pago->load_pago($id_pago);
+
+			//print_r($pago);
+
+
 
 			$this->_pdf->AddPage();
 			
@@ -40,30 +45,31 @@ class pdfController extends Controller
 			$this->_pdf->Cell(190,4, utf8_decode('G-200111268'),0,1,'C');
 			$this->_pdf->Ln(15);
 			$this->_pdf->SetFont('Arial','',10);
-			$this->_pdf->Cell(190,8,utf8_decode('Orden de pago nro XXXXXXXX'),0,1,'C');
+			$this->_pdf->Cell(190,8,utf8_decode('Orden de pago nro:'.$pago->nro_orden),0,1,'C');
 			$this->_pdf->SetFont('Arial','',8);
 			$this->_pdf->Cell(47,4,utf8_decode('Fecha de solicitud:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode('(xx/xx/xxxx)'),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode(date("d-m-Y")),0,0,'L');
 			$this->_pdf->Cell(45,4,utf8_decode('Monto:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode('xxxxxx'),0,1,'L');
+			$this->_pdf->Cell(47,4,utf8_decode($pago->monto_orden),0,1,'L');
 			$this->_pdf->Ln(15);
 			$this->_pdf->Cell(47,4,utf8_decode('Beneficiario:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode('xxxxxxxxxxxxxxx'),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode($pago->nombre_beneficiario),0,0,'L');
 			$this->_pdf->Cell(45,4,utf8_decode('C.I/RIF:'),0,0,'L');
-			$this->_pdf->Cell(47,8,utf8_decode('xxxxxxxxxxxxxxx'),0,1,'L');
+			$this->_pdf->Cell(47,8,utf8_decode($pago->id_beneficiario),0,1,'L');
 			$this->_pdf->Cell(47,4,utf8_decode('Autorizado:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode('xxxxxxxxxxxxxxx'),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode($pago->nombre_autorizado),0,0,'L');
 			$this->_pdf->Cell(45,4,utf8_decode('C.I/RIF:'),0,0,'L');
-			$this->_pdf->Cell(47,8,utf8_decode('xxxxxxxxxxxxxxx'),0,1,'L');
+			$this->_pdf->Cell(47,8,utf8_decode($pago->id_autorizado),0,1,'L');
 
 			$this->_pdf->Cell(47,4,utf8_decode('Autorizado al cobor la cantidad de:'),0,0,'L');
-			$this->_pdf->Cell(140,4,utf8_decode('xxxxxxxxxxxxxxx'),'B',1,'L');
+			$this->_pdf->Cell(140,4,utf8_decode($pago->cantidad_letras),'B',1,'L');
 			
 			$this->_pdf->Cell(47,4,utf8_decode('Por concepto de:'),0,0,'L');		
-			$this->_pdf->Multicell(140,4,utf8_decode('xxxxxxxxxxxxxxx'),'B','J');
+			$this->_pdf->Multicell(140,4,utf8_decode($pago->concepto_pago),0,'J');
 			$this->_pdf->Ln(10);
 
 			$this->_pdf->Cell(190,8,utf8_decode('PARTIDAS PRESUPUESTARIAS:'),0,1,'L');
+
 
 
 			$this->_pdf->Cell(20,4,utf8_decode('Partida'),0,0,'L');
@@ -71,10 +77,33 @@ class pdfController extends Controller
 			$this->_pdf->Cell(20,4,utf8_decode('Específica'),0,0,'L');
 			$this->_pdf->Cell(20,4,utf8_decode('Sub-específica'),0,1,'L');
 
-			$this->_pdf->Cell(20,4,utf8_decode('4.04'),1,0,'L');
-			$this->_pdf->Cell(20,4,utf8_decode('12'),1,0,'L');
-			$this->_pdf->Cell(20,4,utf8_decode('23'),1,0,'L');
-			$this->_pdf->Cell(20,4,utf8_decode('00'),1,1,'L');
+			for ($i=0; $i < count($pago->partidas) ; $i++) { 
+				
+			//$pago->partidas[$i]['datos']['partida']
+			$prt = explode("." , $pago->partidas[$i]['datos']['partida']); 
+			//print_r($prt);
+	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[0]) && isset($prt[1]) )  ? $prt[0].'.'.$prt[1] : "" ),1,0,'L');
+	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[2]) )  ? $prt[2] : ""),1,0,'L');
+	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[3]) )  ? $prt[3] : ""),1,0,'L');
+	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[4]) )  ? $prt[4] : ""),1,1,'L');
+
+
+
+
+			}
+
+
+			
+
+			
+
+
+
+
+
+
+
+
 
 			$this->_pdf->Ln(10);
 
@@ -102,9 +131,9 @@ class pdfController extends Controller
 			$this->_pdf->Cell(63,4,utf8_decode('Entidad Bancaria:'),0,0,'C');
 			$this->_pdf->Cell(63,4,utf8_decode('Nº Cheque:'),0,0,'C');
 			$this->_pdf->Cell(63,4,utf8_decode('Nº de Cuenta:'),0,1,'C');
-			$this->_pdf->Cell(63,8,utf8_decode(''),1,0,'C');
-			$this->_pdf->Cell(63,8,utf8_decode(''),1,0,'C');
-			$this->_pdf->Cell(63,8,utf8_decode(''),1,1,'C');
+			$this->_pdf->Cell(63,8,utf8_decode($pago->entidad_bancaria),1,0,'C');
+			$this->_pdf->Cell(63,8,utf8_decode($pago->nro_cheque),1,0,'C');
+			$this->_pdf->Cell(63,8,utf8_decode($pago->nro_cuenta),1,1,'C');
 
 			$this->_pdf->Ln(10);
 
