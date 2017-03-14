@@ -125,6 +125,7 @@ $(document).on('click', '#guardar', function() {
 			"partidas" : array
 			},function(datos){
 					console.log(datos);
+					location.href=base_url+"pdf/generar_orden/"+datos;
 
 			});
 
