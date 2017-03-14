@@ -1,11 +1,52 @@
 <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8  col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
 
-    <div class="header-titulos">REGISTRO</div>
+    <div class="header-titulos">REGISTRAR DEPARTAMENTOS</div>
 
 
 	<div id="alumprofe" class="row">
-		<div id="alumnos_re" class="col-xs-12 col-md-5 ">ALUMNOS</div>
-		<div id="profesor_re" class="col-xs-12 col-md-5 col-md-offset-2">PROFESOR</div>	
+	
+
+		<form id="form_registro" action="<?php echo BASE_URL?>registro/guardar_departamentos" method="POST">
+  
+			<div class="form-group ">
+			      <label class="">Codigo del departamento</label>
+			      <input type="nombres" class="form-control" name="codigo" id="codigo" placeholder="CODIGO" >
+			      </div>
+			     
+			  
+			  <div class="form-group">
+			    <label class="">Nombre del departamento</label>
+			    <input type="text" class="form-control" name="nombre_departamento" id="nombre_departamento" placeholder="NOMBRE DEL DEPARTAMENTO">
+			  </div>
+
+			  <div class="form-group">
+			    <label class="">Descripcion</label>
+			    <textarea id="descripcion_departamento" name="descripcion_departamento" class="form-control"></textarea>
+			  </div>
+			  
+			  <div class="form-group">
+			    <label class="">CONTRASEÑA</label>
+			      <input type="password" class="form-control" name="pass" id="pass" placeholder="CONTRASEÑA">
+			  </div>
+
+			  <div class="form-group">
+			    <label class="">COMFIRMAR</label>
+			   <input type="password" class="form-control" name="confirmar" id="confirmar" placeholder="CONTRASEÑA">
+			  </div>
+
+
+
+
+			   
+			  
+			<div class="form-group">
+			 <center>
+			      <button type="submit" class="btn btn-primary">REGISTRAR</button>
+			      <a href="<?php echo BASE_URL;?>"> REGRESAR </a>
+			 </center>
+			  </div>
+
+			</form>
 
 	</div>
 

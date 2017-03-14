@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 07-01-2017 a las 04:32:23
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 5.5.37
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-03-2017 a las 19:10:27
+-- Versión del servidor: 5.6.21
+-- Versión de PHP: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,11 +14,33 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `apaff`
 --
+CREATE DATABASE IF NOT EXISTS `apaff` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `apaff`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `departamento`
+--
+
+CREATE TABLE IF NOT EXISTS `departamento` (
+`id_departamento` int(11) NOT NULL,
+  `codigo` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_bin NOT NULL,
+  `descripcion` varchar(500) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `departamento`
+--
+
+INSERT INTO `departamento` (`id_departamento`, `codigo`, `nombre`, `descripcion`) VALUES
+(5, '001', 'FUMICT', 'FUNDACION');
 
 -- --------------------------------------------------------
 
@@ -26,15 +48,15 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `log`
 --
 
-CREATE TABLE `log` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `log` (
+`id` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `ip` varchar(12) NOT NULL,
   `controlador` varchar(30) NOT NULL,
   `metodo` varchar(30) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1757 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `log`
@@ -1115,7 +1137,674 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 (1087, 1, '127.0.0.1', 'partida', 'consultar', '2017-01-06', '22:19:52'),
 (1088, 1, '127.0.0.1', 'login', 'index', '2017-01-06', '22:19:57'),
 (1089, 1, '127.0.0.1', 'principal', 'index', '2017-01-06', '22:19:57'),
-(1090, 1, '127.0.0.1', 'partida', 'agregar', '2017-01-06', '22:20:00');
+(1090, 1, '127.0.0.1', 'partida', 'agregar', '2017-01-06', '22:20:00'),
+(1091, NULL, '127.0.0.1', 'login', 'index', '2017-03-01', '10:24:35'),
+(1092, NULL, '127.0.0.1', 'login', 'index', '2017-03-01', '10:24:42'),
+(1093, NULL, '127.0.0.1', 'login', 'index', '2017-03-01', '10:24:45'),
+(1094, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:24:46'),
+(1095, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:24:46'),
+(1096, 1, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '10:25:20'),
+(1097, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:25:29'),
+(1098, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:25:29'),
+(1099, 1, '127.0.0.1', 'partida', 'consultar', '2017-03-01', '10:25:31'),
+(1100, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:25:38'),
+(1101, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:25:38'),
+(1102, 1, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '10:25:39'),
+(1103, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:47'),
+(1104, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:47'),
+(1105, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:47'),
+(1106, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:48'),
+(1107, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:48'),
+(1108, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:48'),
+(1109, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:48'),
+(1110, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:49'),
+(1111, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:49'),
+(1112, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:49'),
+(1113, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:25:49'),
+(1114, 1, '127.0.0.1', 'partida', 'guardar', '2017-03-01', '10:26:06'),
+(1115, 1, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '10:26:06'),
+(1116, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:26:09'),
+(1117, 1, '127.0.0.1', 'partida', 'consultar', '2017-03-01', '10:26:12'),
+(1118, 1, '127.0.0.1', 'partida', 'sumar', '2017-03-01', '10:26:17'),
+(1119, 1, '127.0.0.1', 'partida', 'guardar_operacion', '2017-03-01', '10:26:36'),
+(1120, 1, '127.0.0.1', 'partida', 'sumar', '2017-03-01', '10:26:36'),
+(1121, 1, '127.0.0.1', 'partida', 'consultar', '2017-03-01', '10:26:45'),
+(1122, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:26:52'),
+(1123, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:26:52'),
+(1124, 1, '127.0.0.1', 'partida', 'v_debito', '2017-03-01', '10:26:56'),
+(1125, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:27:00'),
+(1126, 1, '127.0.0.1', 'partida', 'guardar_operacion', '2017-03-01', '10:27:11'),
+(1127, 1, '127.0.0.1', 'partida', 'v_debito', '2017-03-01', '10:27:11'),
+(1128, 1, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '10:27:14'),
+(1129, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:27:20'),
+(1130, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:27:20'),
+(1131, 1, '127.0.0.1', 'partida', 'v_debito', '2017-03-01', '10:29:54'),
+(1132, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:29:59'),
+(1133, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:29:59'),
+(1134, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:45:59'),
+(1135, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:45:59'),
+(1136, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:45:59'),
+(1137, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:46:39'),
+(1138, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:46:53'),
+(1139, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:46:53'),
+(1140, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:46:53'),
+(1141, 1, '127.0.0.1', 'principal', 'registro', '2017-03-01', '10:47:30'),
+(1142, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:47:38'),
+(1143, 1, '127.0.0.1', 'registro', 'regisalum', '2017-03-01', '10:47:50'),
+(1144, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:47:50'),
+(1145, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:47:50'),
+(1146, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:47:52'),
+(1147, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:55:02'),
+(1148, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:55:29'),
+(1149, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:55:40'),
+(1150, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:55:53'),
+(1151, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '10:56:03'),
+(1152, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '10:56:03'),
+(1153, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '10:56:10'),
+(1154, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:08:19'),
+(1155, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:09:04'),
+(1156, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:09:17'),
+(1157, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:10:04'),
+(1158, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:10:43'),
+(1159, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '11:10:51'),
+(1160, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:10:52'),
+(1161, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:10:57'),
+(1162, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:11:07'),
+(1163, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '11:11:26'),
+(1164, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:11:26'),
+(1165, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:11:30'),
+(1166, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:11:41'),
+(1167, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:12:48'),
+(1168, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:13:23'),
+(1169, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:13:40'),
+(1170, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:16:50'),
+(1171, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:17:04'),
+(1172, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:17:35'),
+(1173, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:18:26'),
+(1174, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '11:20:05'),
+(1175, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:20:05'),
+(1176, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:20:07'),
+(1177, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:20:12'),
+(1178, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:20:34'),
+(1179, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:21:46'),
+(1180, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '11:22:33'),
+(1181, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:22:33'),
+(1182, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:22:36'),
+(1183, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:22:49'),
+(1184, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:23:09'),
+(1185, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:23:41'),
+(1186, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:23:55'),
+(1187, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:26:15'),
+(1188, 1, '127.0.0.1', 'login', 'index', '2017-03-01', '11:28:04'),
+(1189, 1, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:28:05'),
+(1190, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:28:12'),
+(1191, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:28:31'),
+(1192, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:29:09'),
+(1193, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:29:30'),
+(1194, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:29:42'),
+(1195, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:30:52'),
+(1196, 1, '127.0.0.1', 'registro', 'guardar_departamentos', '2017-03-01', '11:31:07'),
+(1197, 1, '127.0.0.1', 'registro', 'index', '2017-03-01', '11:31:48'),
+(1198, 1, '127.0.0.1', 'login', 'cerrar', '2017-03-01', '11:32:31'),
+(1199, NULL, '127.0.0.1', 'login', 'index', '2017-03-01', '11:32:31'),
+(1200, NULL, '127.0.0.1', 'login', 'index', '2017-03-01', '11:32:36'),
+(1201, 10, '127.0.0.1', 'login', 'index', '2017-03-01', '11:32:36'),
+(1202, 10, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:32:36'),
+(1203, 10, '127.0.0.1', 'login', 'cerrar', '2017-03-01', '11:41:43'),
+(1204, NULL, '127.0.0.1', 'login', 'index', '2017-03-01', '11:41:43'),
+(1205, NULL, '127.0.0.1', 'login', 'index', '2017-03-01', '11:41:48'),
+(1206, 4, '127.0.0.1', 'login', 'index', '2017-03-01', '11:41:48'),
+(1207, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:41:48'),
+(1208, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:43:59'),
+(1209, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:44:24'),
+(1210, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:51:00'),
+(1211, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '11:51:02'),
+(1212, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:51:07'),
+(1213, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-01', '11:51:09'),
+(1214, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:51:12'),
+(1215, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:52:39'),
+(1216, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-01', '11:52:40'),
+(1217, 4, '127.0.0.1', 'login', 'index', '2017-03-01', '11:56:28'),
+(1218, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '11:56:29'),
+(1219, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '11:56:45'),
+(1220, 4, '127.0.0.1', 'login', 'index', '2017-03-01', '12:14:21'),
+(1221, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '12:14:22'),
+(1222, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:14:43'),
+(1223, 4, '127.0.0.1', 'login', 'index', '2017-03-01', '12:15:41'),
+(1224, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '12:15:41'),
+(1225, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:15:47'),
+(1226, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:27:30'),
+(1227, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:27:51'),
+(1228, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:27:54'),
+(1229, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:28:22'),
+(1230, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:28:23'),
+(1231, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:28:46'),
+(1232, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:28:50'),
+(1233, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:29:53'),
+(1234, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:29:55'),
+(1235, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:33:44'),
+(1236, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:33:45'),
+(1237, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:36:10'),
+(1238, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:36:11'),
+(1239, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:36:54'),
+(1240, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:36:55'),
+(1241, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:37:26'),
+(1242, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:37:27'),
+(1243, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:41:45'),
+(1244, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:41:46'),
+(1245, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:41:46'),
+(1246, 4, '127.0.0.1', 'partida', 'guardar', '2017-03-01', '12:41:53'),
+(1247, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:41:53'),
+(1248, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:41:56'),
+(1249, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:41:59'),
+(1250, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:41:59'),
+(1251, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:41:59'),
+(1252, 4, '127.0.0.1', 'partida', 'guardar', '2017-03-01', '12:42:03'),
+(1253, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:42:03'),
+(1254, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:42:04'),
+(1255, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:42:08'),
+(1256, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:42:08'),
+(1257, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:42:08'),
+(1258, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '12:42:15'),
+(1259, 4, '127.0.0.1', 'partida', 'consultar', '2017-03-01', '12:42:17'),
+(1260, 4, '127.0.0.1', 'login', 'index', '2017-03-01', '12:43:02'),
+(1261, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '12:43:03'),
+(1262, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:43:05'),
+(1263, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:43:06'),
+(1264, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:43:09'),
+(1265, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:43:10'),
+(1266, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:43:10'),
+(1267, 4, '127.0.0.1', 'partida', 'guardar', '2017-03-01', '12:43:18'),
+(1268, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:43:18'),
+(1269, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:43:19'),
+(1270, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:03'),
+(1271, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:06'),
+(1272, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:44:31'),
+(1273, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:44:33'),
+(1274, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:35'),
+(1275, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:35'),
+(1276, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:36'),
+(1277, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:36'),
+(1278, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:36'),
+(1279, 4, '127.0.0.1', 'partida', 'guardar', '2017-03-01', '12:44:44'),
+(1280, 4, '127.0.0.1', 'login', 'index', '2017-03-01', '12:44:49'),
+(1281, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '12:44:49'),
+(1282, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:44:53'),
+(1283, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:44:54'),
+(1284, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:56'),
+(1285, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:56'),
+(1286, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:56'),
+(1287, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:57'),
+(1288, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:44:57'),
+(1289, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:45:13'),
+(1290, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:45:13'),
+(1291, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:49:02'),
+(1292, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:49:03'),
+(1293, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:49:09'),
+(1294, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:49:09'),
+(1295, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:49:09'),
+(1296, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:49:49'),
+(1297, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:49:50'),
+(1298, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:49:53'),
+(1299, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:49:54'),
+(1300, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:49:54'),
+(1301, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:50:37'),
+(1302, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:50:38'),
+(1303, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:50:40'),
+(1304, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:50:40'),
+(1305, 4, '127.0.0.1', 'partida', 'get_partida_for_partida', '2017-03-01', '12:50:40'),
+(1306, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-01', '12:50:46'),
+(1307, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-01', '12:50:47'),
+(1308, 4, '127.0.0.1', 'login', 'index', '2017-03-01', '12:51:32'),
+(1309, 4, '127.0.0.1', 'principal', 'index', '2017-03-01', '12:51:32'),
+(1310, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-01', '12:51:36'),
+(1311, NULL, '127.0.0.1', 'login', 'index', '2017-03-07', '11:53:22'),
+(1312, NULL, '127.0.0.1', 'login', 'index', '2017-03-07', '11:53:28'),
+(1313, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '11:53:28'),
+(1314, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '11:53:28'),
+(1315, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-07', '11:53:35'),
+(1316, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '11:53:35'),
+(1317, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '11:53:40'),
+(1318, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '11:53:40'),
+(1319, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '11:53:43'),
+(1320, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '11:54:00'),
+(1321, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '11:54:00'),
+(1322, 4, '127.0.0.1', 'registro', 'index', '2017-03-07', '11:58:48'),
+(1323, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '11:59:15');
+INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `hora`) VALUES
+(1324, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '11:59:15'),
+(1325, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '12:18:58'),
+(1326, 4, '127.0.0.1', 'proveedores', 'index', '2017-03-07', '12:19:02'),
+(1327, 4, '127.0.0.1', 'registro', 'guardar_proveedores', '2017-03-07', '12:19:17'),
+(1328, 4, '127.0.0.1', 'proveedores', 'index', '2017-03-07', '12:19:38'),
+(1329, 4, '127.0.0.1', 'registro', 'guardar_proveedores', '2017-03-07', '12:21:36'),
+(1330, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '12:21:46'),
+(1331, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '12:21:46'),
+(1332, 4, '127.0.0.1', 'proveedores', 'index', '2017-03-07', '12:21:51'),
+(1333, 4, '127.0.0.1', 'proveedores', 'guardar_proveedores', '2017-03-07', '12:22:28'),
+(1334, 4, '127.0.0.1', 'proveedores', 'index', '2017-03-07', '12:22:36'),
+(1335, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '12:22:39'),
+(1336, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '12:22:39'),
+(1337, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-07', '12:24:32'),
+(1338, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '12:24:39'),
+(1339, 4, '127.0.0.1', 'partida', 'consultar', '2017-03-07', '12:24:42'),
+(1340, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '12:25:04'),
+(1341, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '12:30:28'),
+(1342, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '12:40:48'),
+(1343, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '12:40:48'),
+(1344, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-07', '12:40:51'),
+(1345, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '12:40:52'),
+(1346, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '13:22:34'),
+(1347, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:22:41'),
+(1348, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:23:11'),
+(1349, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:23:43'),
+(1350, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:23:44'),
+(1351, 4, '127.0.0.1', 'partida', 'get_partidas', '2017-03-07', '13:23:56'),
+(1352, 4, '127.0.0.1', 'partida', 'get_partidas', '2017-03-07', '13:24:02'),
+(1353, 4, '127.0.0.1', 'partida', 'get_partidas', '2017-03-07', '13:24:05'),
+(1354, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '13:24:19'),
+(1355, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:35:32'),
+(1356, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:35:33'),
+(1357, 4, '127.0.0.1', 'partida', 'get_partidas', '2017-03-07', '13:35:39'),
+(1358, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:37:45'),
+(1359, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:37:48'),
+(1360, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:38:03'),
+(1361, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:38:04'),
+(1362, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:39:03'),
+(1363, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:39:04'),
+(1364, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:39:35'),
+(1365, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:39:36'),
+(1366, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:40:59'),
+(1367, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:41:05'),
+(1368, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:43:02'),
+(1369, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:43:10'),
+(1370, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:45:18'),
+(1371, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:45:18'),
+(1372, 4, '127.0.0.1', 'partida', 'get_partidas', '2017-03-07', '13:45:25'),
+(1373, 4, '127.0.0.1', 'partida', 'get_partidas', '2017-03-07', '13:45:52'),
+(1374, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:47:05'),
+(1375, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:47:07'),
+(1376, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '13:47:12'),
+(1377, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '13:47:21'),
+(1378, 4, '127.0.0.1', 'partida', 'agregar', '2017-03-07', '13:47:24'),
+(1379, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:47:25'),
+(1380, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '13:47:26'),
+(1381, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '13:47:26'),
+(1382, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:47:30'),
+(1383, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:47:31'),
+(1384, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '13:47:38'),
+(1385, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:56:00'),
+(1386, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:56:11'),
+(1387, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '13:56:45'),
+(1388, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '13:56:47'),
+(1389, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '14:04:13'),
+(1390, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '14:04:14'),
+(1391, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '14:05:02'),
+(1392, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '14:05:04'),
+(1393, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '14:05:11'),
+(1394, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '14:05:49'),
+(1395, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '14:05:58'),
+(1396, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '14:06:21'),
+(1397, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '14:06:31'),
+(1398, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '14:06:32'),
+(1399, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '14:08:25'),
+(1400, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '14:08:26'),
+(1401, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '14:08:33'),
+(1402, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '14:10:57'),
+(1403, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '14:10:58'),
+(1404, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '14:24:19'),
+(1405, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '14:24:20'),
+(1406, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '14:24:28'),
+(1407, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '14:59:54'),
+(1408, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '14:59:55'),
+(1409, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '15:00:00'),
+(1410, NULL, '127.0.0.1', 'login', 'index', '2017-03-07', '16:02:21'),
+(1411, NULL, '127.0.0.1', 'login', 'index', '2017-03-07', '16:02:35'),
+(1412, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '16:02:35'),
+(1413, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '16:02:35'),
+(1414, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:02:38'),
+(1415, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:04:01'),
+(1416, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:05:27'),
+(1417, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:05:53'),
+(1418, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:06:42'),
+(1419, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:07:10'),
+(1420, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:07:11'),
+(1421, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:07:24'),
+(1422, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:07:44'),
+(1423, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:07:44'),
+(1424, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:08:57'),
+(1425, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:09:04'),
+(1426, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:09:10'),
+(1427, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:09:22'),
+(1428, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:09:22'),
+(1429, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:11:27'),
+(1430, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:11:28'),
+(1431, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:11:38'),
+(1432, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:11:52'),
+(1433, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:11:52'),
+(1434, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:12:45'),
+(1435, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:12:47'),
+(1436, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:12:51'),
+(1437, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:13:19'),
+(1438, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:13:20'),
+(1439, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:15:02'),
+(1440, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:16:37'),
+(1441, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:17:12'),
+(1442, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:17:24'),
+(1443, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:18:03'),
+(1444, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:18:46'),
+(1445, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:18:56'),
+(1446, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:18:57'),
+(1447, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:18:59'),
+(1448, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:19:00'),
+(1449, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:19:20'),
+(1450, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:19:30'),
+(1451, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:19:30'),
+(1452, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:20:21'),
+(1453, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:20:22'),
+(1454, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:20:39'),
+(1455, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:20:51'),
+(1456, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:20:51'),
+(1457, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:21:34'),
+(1458, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:22:40'),
+(1459, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:25:01'),
+(1460, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:25:02'),
+(1461, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:25:12'),
+(1462, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:25:17'),
+(1463, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:25:17'),
+(1464, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '16:26:43'),
+(1465, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '16:26:51'),
+(1466, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '16:26:56'),
+(1467, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:02'),
+(1468, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion', '2017-03-07', '16:27:02'),
+(1469, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:06'),
+(1470, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:07'),
+(1471, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:07'),
+(1472, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:07'),
+(1473, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:07'),
+(1474, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:07'),
+(1475, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:07'),
+(1476, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:08'),
+(1477, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:08'),
+(1478, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:08'),
+(1479, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:08'),
+(1480, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:08'),
+(1481, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:08'),
+(1482, 4, '127.0.0.1', 'requisiciones', 'guardar_requisicion_detalles', '2017-03-07', '16:27:09'),
+(1483, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '16:27:22'),
+(1484, NULL, '127.0.0.1', 'login', 'index', '2017-03-07', '22:07:41'),
+(1485, NULL, '127.0.0.1', 'login', 'index', '2017-03-07', '22:12:19'),
+(1486, 4, '127.0.0.1', 'login', 'index', '2017-03-07', '22:12:19'),
+(1487, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '22:12:19'),
+(1488, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-07', '22:12:23'),
+(1489, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-07', '22:12:24'),
+(1490, 4, '127.0.0.1', 'partida', 'get_partidas_for_departamento', '2017-03-07', '22:12:30'),
+(1491, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '22:12:32'),
+(1492, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '22:19:56'),
+(1493, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '22:19:59'),
+(1494, 4, '127.0.0.1', 'principal', 'index', '2017-03-07', '22:20:05'),
+(1495, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '22:23:29'),
+(1496, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '22:23:47'),
+(1497, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '22:25:06'),
+(1498, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '22:25:33'),
+(1499, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '22:44:41'),
+(1500, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:44:51'),
+(1501, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:44:52'),
+(1502, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:45:00'),
+(1503, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:45:00'),
+(1504, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:45:00'),
+(1505, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:45:00'),
+(1506, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:15'),
+(1507, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:17'),
+(1508, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:19'),
+(1509, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:20'),
+(1510, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:24'),
+(1511, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:25'),
+(1512, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:25'),
+(1513, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:26'),
+(1514, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:27'),
+(1515, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:27'),
+(1516, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:27'),
+(1517, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:27'),
+(1518, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:46:27'),
+(1519, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:06'),
+(1520, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:09'),
+(1521, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:09'),
+(1522, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:10'),
+(1523, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:10'),
+(1524, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:10'),
+(1525, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:11'),
+(1526, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:11'),
+(1527, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:11'),
+(1528, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:11'),
+(1529, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:12'),
+(1530, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:12'),
+(1531, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:14'),
+(1532, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:14'),
+(1533, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:31'),
+(1534, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:47:36'),
+(1535, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '22:52:53'),
+(1536, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:53:00'),
+(1537, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:53:00'),
+(1538, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:53:47'),
+(1539, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '22:53:48'),
+(1540, 4, '127.0.0.1', 'proveedores', 'eliminar_proveedor', '2017-03-07', '22:53:57'),
+(1541, 4, '127.0.0.1', 'proveedores', 'eliminar_proveedor', '2017-03-07', '23:01:27'),
+(1542, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:01:29'),
+(1543, 4, '127.0.0.1', 'proveedores', 'eliminar_proveedor', '2017-03-07', '23:01:33'),
+(1544, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:01:34'),
+(1545, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:12:32'),
+(1546, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:12:40'),
+(1547, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:13:32'),
+(1548, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:13:40'),
+(1549, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:13:40'),
+(1550, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:13:41'),
+(1551, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:13:42'),
+(1552, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:14:33'),
+(1553, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:14:36'),
+(1554, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:14:39'),
+(1555, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:15:27'),
+(1556, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:15:39'),
+(1557, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:16:08'),
+(1558, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:16:13'),
+(1559, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:16:45'),
+(1560, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:16:51'),
+(1561, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:17:35'),
+(1562, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:17:39'),
+(1563, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:17:39'),
+(1564, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:17:41'),
+(1565, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:17:41'),
+(1566, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:28:22'),
+(1567, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:28:24'),
+(1568, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:28:31'),
+(1569, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:28:36'),
+(1570, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:29:38'),
+(1571, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:29:55'),
+(1572, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:31:00'),
+(1573, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:31:56'),
+(1574, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:32:48'),
+(1575, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:32:59'),
+(1576, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:33:50'),
+(1577, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:33:59'),
+(1578, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:42:16'),
+(1579, 4, '127.0.0.1', 'proveedores', 'listado', '2017-03-07', '23:44:38'),
+(1580, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:44:44'),
+(1581, 4, '127.0.0.1', 'proveedores', 'editar_proveedor', '2017-03-07', '23:44:59'),
+(1582, 4, '127.0.0.1', 'proveedores', 'buscar_proveedores', '2017-03-07', '23:45:01'),
+(1583, 4, '127.0.0.1', 'login', 'index', '2017-03-08', '07:02:42'),
+(1584, 4, '127.0.0.1', 'principal', 'index', '2017-03-08', '07:02:42'),
+(1585, 4, '127.0.0.1', 'partida', 'consultar', '2017-03-08', '07:02:48'),
+(1586, 4, '127.0.0.1', 'principal', 'index', '2017-03-08', '07:02:50'),
+(1587, NULL, '127.0.0.1', 'login', 'index', '2017-03-12', '22:04:24'),
+(1588, NULL, '127.0.0.1', 'login', 'index', '2017-03-12', '22:04:33'),
+(1589, NULL, '127.0.0.1', 'login', 'index', '2017-03-12', '22:04:37'),
+(1590, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '22:04:37'),
+(1591, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:04:37'),
+(1592, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:04:41'),
+(1593, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:05:39'),
+(1594, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-12', '22:05:43'),
+(1595, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-12', '22:05:44'),
+(1596, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '22:09:42'),
+(1597, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:09:42'),
+(1598, 4, '127.0.0.1', 'partida', 'consultar', '2017-03-12', '22:09:45'),
+(1599, 4, '127.0.0.1', 'partida', 'sumar', '2017-03-12', '22:09:47'),
+(1600, 4, '127.0.0.1', 'partida', 'consultar', '2017-03-12', '22:09:50'),
+(1601, 4, '127.0.0.1', 'partida', 'get_partida_all', '2017-03-12', '22:19:29'),
+(1602, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '22:24:55'),
+(1603, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:24:55'),
+(1604, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:24:58'),
+(1605, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:25:17'),
+(1606, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:25:39'),
+(1607, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:26:11'),
+(1608, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:27:04'),
+(1609, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:27:07'),
+(1610, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:28:55'),
+(1611, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:28:58'),
+(1612, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '22:29:00'),
+(1613, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:29:00'),
+(1614, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:29:03'),
+(1615, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:29:13'),
+(1616, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:29:34'),
+(1617, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:30:44'),
+(1618, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:30:54'),
+(1619, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:31:04'),
+(1620, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '22:31:04'),
+(1621, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:31:04'),
+(1622, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:31:07'),
+(1623, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:31:25'),
+(1624, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:31:32'),
+(1625, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:31:32'),
+(1626, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:34:14'),
+(1627, 4, '127.0.0.1', 'partida', 'consultar', '2017-03-12', '22:34:16'),
+(1628, 4, '127.0.0.1', 'partida', 'get_partida_all', '2017-03-12', '22:34:18'),
+(1629, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '22:39:43'),
+(1630, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:39:43'),
+(1631, 4, '127.0.0.1', 'requisiciones', 'agregar', '2017-03-12', '22:39:45'),
+(1632, 4, '127.0.0.1', 'partida', 'get_departamentos', '2017-03-12', '22:39:46'),
+(1633, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '22:56:06'),
+(1634, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '22:56:06'),
+(1635, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:56:08'),
+(1636, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:56:50'),
+(1637, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:57:13'),
+(1638, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:57:35'),
+(1639, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '22:57:41'),
+(1640, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '22:58:53'),
+(1641, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '22:59:34'),
+(1642, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '22:59:43'),
+(1643, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:07:41'),
+(1644, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:07:47'),
+(1645, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:09:22'),
+(1646, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:10:27'),
+(1647, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:10:39'),
+(1648, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:11:07'),
+(1649, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:11:13'),
+(1650, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:12:17'),
+(1651, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:12:29'),
+(1652, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:13:05'),
+(1653, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:13:11'),
+(1654, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:13:36'),
+(1655, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:13:41'),
+(1656, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:14:20'),
+(1657, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:14:28'),
+(1658, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:14:42'),
+(1659, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:14:47'),
+(1660, 4, '127.0.0.1', 'requisiciones', 'consultar', '2017-03-12', '23:15:13'),
+(1661, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:15:31'),
+(1662, 4, '127.0.0.1', 'requisiciones', 'get_requisiciones_peticiones', '2017-03-12', '23:15:36'),
+(1663, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '23:19:53'),
+(1664, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '23:19:53'),
+(1665, 4, '127.0.0.1', 'login', 'index', '2017-03-12', '23:35:50'),
+(1666, 4, '127.0.0.1', 'principal', 'index', '2017-03-12', '23:35:50'),
+(1667, NULL, '127.0.0.1', 'login', 'index', '2017-03-13', '17:46:17'),
+(1668, NULL, '127.0.0.1', 'login', 'index', '2017-03-13', '17:46:24'),
+(1669, 4, '127.0.0.1', 'login', 'index', '2017-03-13', '17:46:24'),
+(1670, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '17:46:24'),
+(1671, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '17:48:39'),
+(1672, 4, '127.0.0.1', 'pagos', 'ordenes_pago', '2017-03-13', '17:54:45'),
+(1673, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '17:54:48'),
+(1674, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:11:55'),
+(1675, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:19:50'),
+(1676, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:29:53'),
+(1677, 4, '127.0.0.1', 'proveedores', 'guardar_pagos', '2017-03-13', '18:31:07'),
+(1678, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:31:27'),
+(1679, 4, '127.0.0.1', 'proveedores', 'guardar_pagos', '2017-03-13', '18:33:29'),
+(1680, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:33:37'),
+(1681, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:33:39'),
+(1682, 4, '127.0.0.1', 'pagos', 'guardar_pagos', '2017-03-13', '18:34:48'),
+(1683, 4, '127.0.0.1', 'pagos', 'guardar_pagos', '2017-03-13', '18:35:16'),
+(1684, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:36:20'),
+(1685, 4, '127.0.0.1', 'pagos', 'guardar_pagos', '2017-03-13', '18:37:01'),
+(1686, 4, '127.0.0.1', 'pagos', 'index', '2017-03-13', '18:41:47'),
+(1687, 4, '127.0.0.1', 'login', 'index', '2017-03-13', '18:52:35'),
+(1688, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '18:52:35'),
+(1689, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '18:52:40'),
+(1690, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '18:59:04'),
+(1691, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:14'),
+(1692, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:14'),
+(1693, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:17'),
+(1694, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:17'),
+(1695, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '18:59:18'),
+(1696, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:03'),
+(1697, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:05'),
+(1698, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:05'),
+(1699, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:06'),
+(1700, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:06'),
+(1701, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:06'),
+(1702, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:39'),
+(1703, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1704, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1705, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1706, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1707, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:00:44'),
+(1708, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:03:41'),
+(1709, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:01'),
+(1710, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:02'),
+(1711, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:03'),
+(1712, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:03'),
+(1713, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:03'),
+(1714, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:04:23'),
+(1715, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:13'),
+(1716, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:16'),
+(1717, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:18'),
+(1718, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:19'),
+(1719, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1720, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1721, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1722, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1723, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:22'),
+(1724, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:25'),
+(1725, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:27'),
+(1726, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:28'),
+(1727, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:28'),
+(1728, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:28'),
+(1729, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:05:52'),
+(1730, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:05:55'),
+(1731, 4, '127.0.0.1', 'login', 'index', '2017-03-13', '19:22:12'),
+(1732, 4, '127.0.0.1', 'principal', 'index', '2017-03-13', '19:22:12'),
+(1733, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:22:24'),
+(1734, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:29'),
+(1735, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:32'),
+(1736, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:32'),
+(1737, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:32'),
+(1738, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:22:33'),
+(1739, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:24:50'),
+(1740, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:24:56'),
+(1741, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:24:57'),
+(1742, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:24:58'),
+(1743, 4, '127.0.0.1', 'pagos', 'eliminar_pago', '2017-03-13', '19:25:04'),
+(1744, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:25:06'),
+(1745, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:25:17'),
+(1746, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:26:30'),
+(1747, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:26:55'),
+(1748, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:27:23'),
+(1749, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:27:43'),
+(1750, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:28:08'),
+(1751, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:31:14'),
+(1752, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:39:36'),
+(1753, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:39:43'),
+(1754, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:39:51'),
+(1755, 4, '127.0.0.1', 'pagos', 'listado', '2017-03-13', '19:39:54'),
+(1756, 4, '127.0.0.1', 'pagos', 'buscar_pagos', '2017-03-13', '19:39:56');
 
 -- --------------------------------------------------------
 
@@ -1123,8 +1812,8 @@ INSERT INTO `log` (`id`, `id_usuario`, `ip`, `controlador`, `metodo`, `fecha`, `
 -- Estructura de tabla para la tabla `menu`
 --
 
-CREATE TABLE `menu` (
-  `id_menu` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `menu` (
+`id_menu` int(11) NOT NULL,
   `titulo` varchar(50) NOT NULL,
   `enlace` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1135,14 +1824,51 @@ CREATE TABLE `menu` (
 -- Estructura de tabla para la tabla `operacion`
 --
 
-CREATE TABLE `operacion` (
-  `id_aumento` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `operacion` (
+`id_aumento` int(11) NOT NULL,
   `id_partida` int(11) NOT NULL,
   `cantidad` decimal(10,2) NOT NULL,
   `fecha` datetime NOT NULL,
   `comentario` varchar(1000) NOT NULL,
   `tipo` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `operacion`
+--
+
+INSERT INTO `operacion` (`id_aumento`, `id_partida`, `cantidad`, `fecha`, `comentario`, `tipo`) VALUES
+(49, 47, '6000000.00', '2017-03-01 12:43:18', 'Apertura de partida', 'aum'),
+(50, 48, '99999999.99', '2017-03-01 12:44:44', 'Apertura de partida', 'aum');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pagos`
+--
+
+CREATE TABLE IF NOT EXISTS `pagos` (
+`id_pago` int(11) NOT NULL,
+  `nro_orden` varchar(100) COLLATE utf8_bin NOT NULL,
+  `monto_orden` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nombre_beneficiario` varchar(200) COLLATE utf8_bin NOT NULL,
+  `id_beneficiario` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nombre_autorizado` varchar(200) COLLATE utf8_bin NOT NULL,
+  `id_autorizado` varchar(100) COLLATE utf8_bin NOT NULL,
+  `cantidad_letras` varchar(300) COLLATE utf8_bin NOT NULL,
+  `concepto_pago` varchar(500) COLLATE utf8_bin NOT NULL,
+  `nro_partida` varchar(200) COLLATE utf8_bin NOT NULL,
+  `entidad_bancaria` varchar(300) COLLATE utf8_bin NOT NULL,
+  `nro_cheque` varchar(100) COLLATE utf8_bin NOT NULL,
+  `nro_cuenta` varchar(100) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `pagos`
+--
+
+INSERT INTO `pagos` (`id_pago`, `nro_orden`, `monto_orden`, `nombre_beneficiario`, `id_beneficiario`, `nombre_autorizado`, `id_autorizado`, `cantidad_letras`, `concepto_pago`, `nro_partida`, `entidad_bancaria`, `nro_cheque`, `nro_cuenta`) VALUES
+(2, '001', '10000', 'ANGEL CHARLOT', '20574205', 'angel charlot', '20574205', 'diez mil bolivares exactos', 'por nutria', '546879454', 'banco de venezuela', '54786', '5454654654');
 
 -- --------------------------------------------------------
 
@@ -1150,11 +1876,20 @@ CREATE TABLE `operacion` (
 -- Estructura de tabla para la tabla `partidas`
 --
 
-CREATE TABLE `partidas` (
-  `id_partida` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `partidas` (
+`id_partida` int(11) NOT NULL,
   `partida` varchar(30) NOT NULL,
-  `denominacion` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `denominacion` varchar(300) NOT NULL,
+  `id_departamentos` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `partidas`
+--
+
+INSERT INTO `partidas` (`id_partida`, `partida`, `denominacion`, `id_departamentos`) VALUES
+(47, '123', 'fasla', 5),
+(48, '12345', 'asdf', 5);
 
 -- --------------------------------------------------------
 
@@ -1162,8 +1897,8 @@ CREATE TABLE `partidas` (
 -- Estructura de tabla para la tabla `permisos`
 --
 
-CREATE TABLE `permisos` (
-  `id_permisos` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `permisos` (
+`id_permisos` int(11) NOT NULL,
   `id_menu` int(11) NOT NULL,
   `id_role` int(11) NOT NULL,
   `permiso` int(1) NOT NULL
@@ -1172,14 +1907,80 @@ CREATE TABLE `permisos` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE IF NOT EXISTS `proveedores` (
+`id_proveedor` int(11) NOT NULL,
+  `nombre_proveedor` varchar(200) COLLATE utf8_bin NOT NULL,
+  `direccion_proveedor` varchar(500) COLLATE utf8_bin NOT NULL,
+  `telefono_proveedor` varchar(100) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`, `direccion_proveedor`, `telefono_proveedor`) VALUES
+(1, 'MILLAN', 'carupano', '04121234567');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `requisicion`
+--
+
+CREATE TABLE IF NOT EXISTS `requisicion` (
+`id_requisicion` int(11) NOT NULL,
+  `codigo_requisicion` varchar(50) COLLATE utf8_bin NOT NULL,
+  `nombre_requisicion` varchar(100) COLLATE utf8_bin NOT NULL,
+  `estado_requisicion` varchar(100) COLLATE utf8_bin NOT NULL,
+  `id_departamento` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `requisicion`
+--
+
+INSERT INTO `requisicion` (`id_requisicion`, `codigo_requisicion`, `nombre_requisicion`, `estado_requisicion`, `id_departamento`) VALUES
+(3, '999', 'alimentos', 'Recibido', 5),
+(4, 'asd', 'asd', 'Recibido', 5),
+(5, 'asd', 'asd', 'Recibido', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `requisicion_partidas`
+--
+
+CREATE TABLE IF NOT EXISTS `requisicion_partidas` (
+  `id_requisicion` int(11) NOT NULL,
+  `id_partidas` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `descripcion` varchar(200) COLLATE utf8_bin NOT NULL,
+  `precio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `requisicion_partidas`
+--
+
+INSERT INTO `requisicion_partidas` (`id_requisicion`, `id_partidas`, `cantidad`, `descripcion`, `precio`) VALUES
+(3, 47, 12, 'pollos', 2000),
+(3, 48, 200, 'alimento', 1000),
+(5, 47, 12, 'asd', 12);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `role`
 --
 
-CREATE TABLE `role` (
-  `id_role` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `role` (
+`id_role` int(11) NOT NULL,
   `role` varchar(50) NOT NULL,
   `peso` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `role`
@@ -1187,6 +1988,8 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id_role`, `role`, `peso`) VALUES
 (1, 'admin_sistem', 1),
+(2, 'departamento', 1),
+(3, 'compra', 1),
 (4, 'anonimo', 4);
 
 -- --------------------------------------------------------
@@ -1195,114 +1998,158 @@ INSERT INTO `role` (`id_role`, `role`, `peso`) VALUES
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+`id_usuario` int(11) NOT NULL,
   `id_role` int(11) NOT NULL DEFAULT '2',
   `login` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `estado` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id_usuario`, `id_role`, `login`, `password`, `estado`) VALUES
-(1, 1, 'admin', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1);
+(1, 1, 'admin', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1),
+(4, 3, 'compra', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1),
+(10, 2, '001', '53362d5ea52a28e1a960323ea19b02cb2b828026', 1);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+ ADD PRIMARY KEY (`id_departamento`);
+
+--
 -- Indices de la tabla `log`
 --
 ALTER TABLE `log`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
+ ADD PRIMARY KEY (`id`), ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `menu`
 --
 ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id_menu`);
+ ADD PRIMARY KEY (`id_menu`);
 
 --
 -- Indices de la tabla `operacion`
 --
 ALTER TABLE `operacion`
-  ADD PRIMARY KEY (`id_aumento`),
-  ADD KEY `id_partidas` (`id_partida`);
+ ADD PRIMARY KEY (`id_aumento`), ADD KEY `id_partidas` (`id_partida`);
+
+--
+-- Indices de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+ ADD PRIMARY KEY (`id_pago`);
 
 --
 -- Indices de la tabla `partidas`
 --
 ALTER TABLE `partidas`
-  ADD PRIMARY KEY (`id_partida`);
+ ADD PRIMARY KEY (`id_partida`), ADD KEY `id_departamentos` (`id_departamentos`);
 
 --
 -- Indices de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  ADD PRIMARY KEY (`id_permisos`),
-  ADD KEY `id_menu` (`id_menu`,`id_role`),
-  ADD KEY `id_role` (`id_role`);
+ ADD PRIMARY KEY (`id_permisos`), ADD KEY `id_menu` (`id_menu`,`id_role`), ADD KEY `id_role` (`id_role`);
+
+--
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+ ADD PRIMARY KEY (`id_proveedor`);
+
+--
+-- Indices de la tabla `requisicion`
+--
+ALTER TABLE `requisicion`
+ ADD PRIMARY KEY (`id_requisicion`), ADD KEY `id_departamento` (`id_departamento`);
+
+--
+-- Indices de la tabla `requisicion_partidas`
+--
+ALTER TABLE `requisicion_partidas`
+ ADD PRIMARY KEY (`id_requisicion`,`id_partidas`), ADD KEY `id_partidas` (`id_partidas`);
 
 --
 -- Indices de la tabla `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`id_role`);
+ ADD PRIMARY KEY (`id_role`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD KEY `id_role_2` (`id_role`),
-  ADD KEY `id_role_3` (`id_role`),
-  ADD KEY `id_role_4` (`id_role`),
-  ADD KEY `id_role_5` (`id_role`);
+ ADD PRIMARY KEY (`id_usuario`), ADD KEY `id_role_2` (`id_role`), ADD KEY `id_role_3` (`id_role`), ADD KEY `id_role_4` (`id_role`), ADD KEY `id_role_5` (`id_role`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+-- AUTO_INCREMENT de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT de la tabla `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1091;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1757;
 --
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `operacion`
 --
 ALTER TABLE `operacion`
-  MODIFY `id_aumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+MODIFY `id_aumento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+--
+-- AUTO_INCREMENT de la tabla `pagos`
+--
+ALTER TABLE `pagos`
+MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `partidas`
 --
 ALTER TABLE `partidas`
-  MODIFY `id_partida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+MODIFY `id_partida` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de la tabla `requisicion`
+--
+ALTER TABLE `requisicion`
+MODIFY `id_requisicion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- Restricciones para tablas volcadas
 --
@@ -1311,26 +2158,45 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `log`
 --
 ALTER TABLE `log`
-  ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `operacion`
 --
 ALTER TABLE `operacion`
-  ADD CONSTRAINT `operacion_ibfk_1` FOREIGN KEY (`id_partida`) REFERENCES `partidas` (`id_partida`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `operacion_ibfk_1` FOREIGN KEY (`id_partida`) REFERENCES `partidas` (`id_partida`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `partidas`
+--
+ALTER TABLE `partidas`
+ADD CONSTRAINT `partidas_ibfk_1` FOREIGN KEY (`id_departamentos`) REFERENCES `departamento` (`id_departamento`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `permisos_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `permisos_ibfk_2` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `requisicion`
+--
+ALTER TABLE `requisicion`
+ADD CONSTRAINT `requisicion_ibfk_1` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `requisicion_partidas`
+--
+ALTER TABLE `requisicion_partidas`
+ADD CONSTRAINT `requisicion_partidas_ibfk_1` FOREIGN KEY (`id_requisicion`) REFERENCES `requisicion` (`id_requisicion`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `requisicion_partidas_ibfk_2` FOREIGN KEY (`id_partidas`) REFERENCES `partidas` (`id_partida`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

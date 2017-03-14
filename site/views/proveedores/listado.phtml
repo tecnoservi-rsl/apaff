@@ -1,0 +1,67 @@
+
+
+<div class="col-md-12">
+
+
+	<div class="">
+	    
+
+	    <div class="input-group" style="padding-top: 10px;">
+	      <input type="text" class="form-control" id="proveedor" name="proveedor" placeholder="Buscar">
+	      <span class="input-group-btn">
+	        <button class="btn btn-danger" id="btn_buscar" type="button">
+	        	<span class="glyphicon glyphicon-search"></span>
+	        </button>
+	      </span>
+
+	    </div><!-- /input-group -->
+		
+		<input type="hidden"  id="bn" name="bn" value="1" >
+
+	</div>
+
+	<div class="col-md-12" id="div_contenedor2">
+			
+	</div>
+	
+						
+</div>
+
+<div class="modal fade" tabindex="-1" id="modaleditar" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+  <input type="text" hidden id="id_proveedor_editar">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Editar Proveedor</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row"> 
+        	<div class="col-md-10">  	
+			<form id="form_registro" method="POST">	  			  
+				<div class="form-group">
+				    <label class="">Nombre del proveedor</label>
+				    <input type="text" class="form-control" name="nombre_proveedor" id="nombre_proveedor">
+				</div>
+
+				<div class="form-group">
+				    <label class="">Direccion</label>
+				    <textarea id="direccion_proveedor" name="direccion_proveedor" class="form-control"></textarea>
+				</div>
+				  
+				<div class="form-group">
+				    <label class="">Telefono del proveedor</label>
+				    <input type="text" class="form-control" name="telefono_proveedor" id="telefono_proveedor">
+				</div>  
+			</form>
+
+			</div>
+        </div>        
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="editar_proveedor" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
