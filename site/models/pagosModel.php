@@ -9,8 +9,8 @@ class pagosModel extends Model
    
     public function guardar_pagos($datos)
     {
-       print_r($datos);
-	   /*$sql="insert into pagos 
+       
+	   $sql="insert into pagos 
         values ('',
         '".$datos['nro_orden']."',
         '".$datos['monto_orden']."',
@@ -28,7 +28,7 @@ class pagosModel extends Model
         for ($i=0; $i <count($datos['partidas']); $i++) { 
             $sql="insert into pagos_partidas values ('$id', '".$datos['partidas'][$i]."')";
             $this->_db->query($sql);
-            }*/
+            }
        return $id;
 
 		
