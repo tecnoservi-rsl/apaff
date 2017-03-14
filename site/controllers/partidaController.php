@@ -224,6 +224,14 @@ class partidaController extends Controller
 	$departamentos=$this->_partida->get_departamentos();
 	echo json_encode($departamentos);			
 			
+	}
+
+	public function get_all()    	{
+
+       		
+	$partida=$this->_partida->get_all();
+	echo json_encode($partida);			
+			
 	}	
 	
 }

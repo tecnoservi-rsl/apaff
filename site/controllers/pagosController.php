@@ -40,8 +40,8 @@ public function renderizarinicio(){
 
 public function guardar_pagos(){
                                                   
-       $this->_pagos->guardar_pagos($_REQUEST);
-       $this->_view->renderizar('index', 'pagos');    
+       echo json_encode($this->_pagos->guardar_pagos($_REQUEST));
+       //$this->_view->renderizar('index', 'pagos');    
 }
 
 public function listado() {
