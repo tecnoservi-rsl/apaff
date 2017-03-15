@@ -128,24 +128,7 @@ class pagosModel extends Model
         return 0;
     }
 
-    public function editar_pago($datos)
-    {
-        $sql="UPDATE proveedores 
-        SET nombre_proveedor='".$datos['nombre_proveedor']."',
-        direccion_proveedor='".$datos['direccion_proveedor']."',
-        telefono_proveedor='".$datos['telefono_proveedor']."'
-        WHERE id_proveedor='".$datos['id_proveedor']."'";
-        $this->_db->query($sql);
-        return 0; 
-    }
 
-    
- 
-
-            
-                
-    
-    
         
 
 }

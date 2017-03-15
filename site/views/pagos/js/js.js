@@ -44,7 +44,7 @@ function mostrar_pagos(nombre){
 			html+="<td>" + datos[i].monto_orden + "</td>";
 			html+="<td><a id='eliminar_pagos' data-toggle='tooltip' data-placement='bottom' title='Eliminar Pagos' data-id_pago='"+datos[i].id_pago+"'>";
 			html+="<span class='glyphicon glyphicon-trash'></span></a>&nbsp;&nbsp;&nbsp;";
-			html+="<a data-placement='bottom' id='pdf_pago' title='PDF Pagos' data-id_pago'"+datos[i].id_pago+"'";
+			html+="<a data-placement='bottom' id='pdf_pago' title='PDF Pagos' data-id_pago_pdf='"+datos[i].id_pago+"'";
 			html+="<span class='glyphicon glyphicon-file'></span></a></td>";
 			}
 			
@@ -68,6 +68,12 @@ $(document).on("click", "#eliminar_pagos", function(){
 				alert("Orden de pago eliminado");
 				mostrar_pagos($("#pago").val());			
 		           },"json");
+
+});
+
+$(document).on("click", "#pdf_pago", function(){
+	id_pago=$(this).data("id_pago_pdf");
+	location.href=base_url+"pdf/generar_orden/"+id_pago;
 
 });
 
