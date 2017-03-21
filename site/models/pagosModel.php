@@ -25,16 +25,28 @@ class pagosModel extends Model
    
     public function guardar_pagos($datos)
     {
+        $monto=0;
+
+
+        for ($i=0; $i <count($datos['partidas']); $i++)
+        { 
+           
+           $monto+=$datos['partidas'][$i]['monto']-(((($datos['partidas'][$i]['monto']/100)*12)/100)*$datos['partidas'][$i]['retencion']);
+
+            }
+
+        $monto_letras=$this->numtoletras($monto);
+
        
 	   $sql="insert into pagos 
         values ('',
         '".$datos['nro_orden']."',
-        '".$datos['monto_orden']."',
+        '".$monto."',
         UPPER('".$datos['nombre_beneficiario']."'),
         '".$datos['id_beneficiario']."',
         UPPER('".$datos['nombre_autorizado']."'),
         '".$datos['id_autorizado']."',
-        UPPER('".$datos['cantidad_letras']."'),
+        UPPER('".$monto_letras."'),
         UPPER('".$datos['concepto_pago']."'),
         UPPER('".$datos['entidad_bancaria']."'),
         '".$datos['nro_cheque']."',
@@ -42,7 +54,7 @@ class pagosModel extends Model
         $this->_db->query($sql);
         $id=$this->_db->lastInsertId();
         for ($i=0; $i <count($datos['partidas']); $i++) { 
-            $sql="insert into pagos_partidas values ('$id', '".$datos['partidas'][$i]."')";
+            $sql="insert into pagos_partidas values ('$id', '".$datos['partidas'][$i]['partida']."', '".$datos['partidas'][$i]['monto']."', '".$datos['partidas'][$i]['retencion']."')";
             $this->_db->query($sql);
             }
        return $id;

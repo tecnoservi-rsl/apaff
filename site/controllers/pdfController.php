@@ -42,30 +42,39 @@ class pdfController extends Controller
 			$this->_pdf->Cell(190,4, utf8_decode('REPUBLICA BOLIVARIANA DE VENEZUELA'),0,1,'C');
 			$this->_pdf->Cell(190,4, utf8_decode('FUNDACION MUNICIPAL PARA LA INNOVACION, CIENCIA Y TECNOLOGIA'),0,1,'C');
 			$this->_pdf->Cell(190,4, utf8_decode('CUMANÁ-EDO-SUCRE'),0,1,'C');
-			$this->_pdf->Cell(190,4, utf8_decode('G-200111268'),0,1,'C');
-			$this->_pdf->Ln(15);
+			$this->_pdf->Cell(190,4, utf8_decode('G-20012114-9'),0,1,'C');
+			$this->_pdf->Ln(6);
 			$this->_pdf->SetFont('Arial','',10);
 			$this->_pdf->Cell(190,8,utf8_decode('Orden de pago nro:'.$pago->nro_orden),0,1,'C');
 			$this->_pdf->SetFont('Arial','',8);
 			$this->_pdf->Cell(47,4,utf8_decode('Fecha de solicitud:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode(date("d-m-Y")),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode(date("d-m-Y")),'B',0,'L');
 			$this->_pdf->Cell(45,4,utf8_decode('Monto:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode($pago->monto_orden),0,1,'L');
-			$this->_pdf->Ln(15);
+			$this->_pdf->Cell(47,4,utf8_decode($pago->monto_orden),'B',1,'L');
+			$this->_pdf->Ln(6);
+
+
+
+
 			$this->_pdf->Cell(47,4,utf8_decode('Beneficiario:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode($pago->nombre_beneficiario),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode($pago->nombre_beneficiario),'B',0,'L');
 			$this->_pdf->Cell(45,4,utf8_decode('C.I/RIF:'),0,0,'L');
-			$this->_pdf->Cell(47,8,utf8_decode($pago->id_beneficiario),0,1,'L');
+			$this->_pdf->Cell(47,4,utf8_decode($pago->id_beneficiario),'B',1,'L');
 			$this->_pdf->Cell(47,4,utf8_decode('Autorizado:'),0,0,'L');
-			$this->_pdf->Cell(47,4,utf8_decode($pago->nombre_autorizado),0,0,'L');
+			$this->_pdf->Cell(47,4,utf8_decode($pago->nombre_autorizado),'B',0,'L');
 			$this->_pdf->Cell(45,4,utf8_decode('C.I/RIF:'),0,0,'L');
-			$this->_pdf->Cell(47,8,utf8_decode($pago->id_autorizado),0,1,'L');
+			$this->_pdf->Cell(47,4,utf8_decode($pago->id_autorizado),'B',1,'L');
+
+
+
+
+
 
 			$this->_pdf->Cell(47,4,utf8_decode('Autorizado al cobor la cantidad de:'),0,0,'L');
-			$this->_pdf->Cell(140,4,utf8_decode($pago->cantidad_letras),'B',1,'L');
-			
+			$this->_pdf->Multicell(140,4,utf8_decode($pago->cantidad_letras),'B','J');
+
 			$this->_pdf->Cell(47,4,utf8_decode('Por concepto de:'),0,0,'L');		
-			$this->_pdf->Multicell(140,4,utf8_decode($pago->concepto_pago),0,'J');
+			$this->_pdf->Multicell(140,4,utf8_decode($pago->concepto_pago),'B','J');
 			$this->_pdf->Ln(10);
 
 			$this->_pdf->Cell(190,8,utf8_decode('PARTIDAS PRESUPUESTARIAS:'),0,1,'L');
@@ -75,25 +84,46 @@ class pdfController extends Controller
 			$this->_pdf->Cell(20,4,utf8_decode('Partida'),0,0,'L');
 			$this->_pdf->Cell(20,4,utf8_decode('Genérica'),0,0,'L');
 			$this->_pdf->Cell(20,4,utf8_decode('Específica'),0,0,'L');
-			$this->_pdf->Cell(20,4,utf8_decode('Sub-específica'),0,1,'L');
-
+			$this->_pdf->Cell(20,4,utf8_decode('Sub-específica'),0,0,'L');
+			$this->_pdf->Cell(30,4,utf8_decode('Monto Bruto'),0,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('%.Retencion'),0,0,'L');
+			$this->_pdf->Cell(25,4,utf8_decode('Monto Causado.'),0,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('Retencion.'),0,1,'L');
+			$suma=0;
+			$suma_bruto=0;
+			$suma_retencion=0;
 			for ($i=0; $i < count($pago->partidas) ; $i++) { 
 				
-			//$pago->partidas[$i]['datos']['partida']
+			//print_r($pago->partidas[$i]);
 			$prt = explode("." , $pago->partidas[$i]['datos']['partida']); 
 			//print_r($prt);
-	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[0]) && isset($prt[1]) )  ? $prt[0].'.'.$prt[1] : "" ),1,0,'L');
-	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[2]) )  ? $prt[2] : ""),1,0,'L');
-	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[3]) )  ? $prt[3] : ""),1,0,'L');
-	$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[4]) )  ? $prt[4] : ""),1,1,'L');
+			$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[0]) && isset($prt[1]) )  ? $prt[0].'.'.$prt[1] : "" ),1,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[2]) )  ? $prt[2] : ""),1,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[3]) )  ? $prt[3] : ""),1,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[4]) )  ? $prt[4] : ""),1,0,'L');
 
 
+
+			$iva=(($pago->partidas[$i]['monto'])/100)*12;
+
+			$retencion=($iva/100)*$pago->partidas[$i]['retencion'];
+			$suma+=$pago->partidas[$i]['monto']-$retencion;
+			$suma_bruto+=$pago->partidas[$i]['monto'];
+			$suma_retencion+=$retencion;
+			$this->_pdf->Cell(30,4,utf8_decode('Bs. '.(number_format($pago->partidas[$i]['monto'],2))),0,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode(($pago->partidas[$i]['retencion'])."%"),0,0,'L');
+			$this->_pdf->Cell(25,4,utf8_decode('Bs. '.number_format ( ($pago->partidas[$i]['monto']-$retencion) , 2)),0,0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('Bs. '.number_format($retencion,2)),0,1,'L');
 
 
 			}
 
-
-			
+			$this->_pdf->SetX(70);
+			$this->_pdf->Cell(20,4,utf8_decode('TOTALES'),1,0,'L');
+			$this->_pdf->Cell(30,4,utf8_decode('Bs. '.number_format($suma_bruto,2)),"T",0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode(""),"T",0,'L');
+			$this->_pdf->Cell(25,4,utf8_decode('Bs. '.number_format($suma,2)),"T",0,'L');
+			$this->_pdf->Cell(20,4,utf8_decode('Bs. '.number_format($suma_retencion,2)),"T",1,'L');
 
 			
 
@@ -115,14 +145,14 @@ class pdfController extends Controller
 			$this->_pdf->Cell(47,8,utf8_decode(''),'B',0,'C');
 			$this->_pdf->Cell(32,8,utf8_decode(''),0,1,'C');
 			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
-			$this->_pdf->Cell(47,4,utf8_decode('Asdrubal melendes'),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode(' Alejandro Gonzalez'),0,0,'C');
 			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
-			$this->_pdf->Cell(47,4,utf8_decode('Alejandro gonzalez'),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('Asdrubal Melendes'),0,0,'C');
 			$this->_pdf->Cell(32,4,utf8_decode(''),0,1,'C');
 			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
-			$this->_pdf->Cell(47,4,utf8_decode('administrador'),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('Presidente'),0,0,'C');
 			$this->_pdf->Cell(32,4,utf8_decode(''),0,0,'C');
-			$this->_pdf->Cell(47,4,utf8_decode('presidente'),0,0,'C');
+			$this->_pdf->Cell(47,4,utf8_decode('Administrador'),0,0,'C');
 			$this->_pdf->Cell(32,4,utf8_decode(''),0,1,'C');
 
 
@@ -152,7 +182,7 @@ class pdfController extends Controller
 
 			$this->_pdf->Cell(190,8,utf8_decode('IMPORTANTE'),0,1,'C');
 			$this->_pdf->SetFont('Arial','',6);
-			$this->_pdf->Multicell(190,4,utf8_decode('(1) Cuando el beneficiario sea un empleado del IMBISO al recibir el cheque se obliga a comprobar el concepto y el monto autorizado, de existir alguna diferencia debera presentar el reclamo, en un periodo no mayor a 8 días continuos contados a partir de la fecha de recepción del cheque.'),0,'J');
+			$this->_pdf->Multicell(190,4,utf8_decode('(1) Cuando el beneficiario sea un empleado del FUMICT al recibir el cheque se obliga a comprobar el concepto y el monto autorizado, de existir alguna diferencia debera presentar el reclamo, en un periodo no mayor a 8 días continuos contados a partir de la fecha de recepción del cheque.'),0,'J');
 			$this->_pdf->Multicell(190,4,utf8_decode('Cuando el beneficiario sea una empresa nacional o extranjera debe estar anexa copia de la factura a esta orden de Pago, en caso contrario que el proveedor manifieste que entregará la factura contra el cheque en administración, el solicitante será el responsable de recuperar la documentación comprobatoria y remitirla a la administracion de la institucion.'),0,'J');
 			$this->_pdf->Multicell(190,4,utf8_decode('(2) Especificar claramente el concepto de gastos, el cual deberá corresponder a la documentación fiscal comprobatoria que se entregará en  Administracion en un plazo no mayor a 8 días continuos, contados a partir de la fecha de recepción del cheque.'),0,'J');
 

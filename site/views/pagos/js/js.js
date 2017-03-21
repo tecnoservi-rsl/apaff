@@ -97,40 +97,34 @@ select_partidas();
 $(document).on('click', '#guardar', function() {
 	
 		var nro_orden =$("#nro_orden").val();
-		var monto_orden =$("#monto_orden").val();
+		//var monto_orden =$("#monto_orden").val();
 		var nombre_beneficiario =$("#nombre_beneficiario").val();
 		var id_beneficiario =$("#id_beneficiario").val();
 		var nombre_autorizado =$("#nombre_autorizado").val();
 		var id_autorizado =$("#id_autorizado").val();
-		var cantidad_letras =$("#cantidad_letras").val();
+		//var cantidad_letras =$("#cantidad_letras").val();
 		var concepto_pago =$("#concepto_pago").val();
 		var entidad_bancaria =$("#entidad_bancaria").val();
 		var nro_cheque =$("#nro_cheque").val();
 		var nro_cuenta =$("#nro_cuenta").val();
-		var newArray= new Array();
-		for( var i = 0, j = array.length; i < j; i++ ){
-	      	if ( array[ i ] ){
-	        newArray.push( array[ i ] );
-  			  }
-  			}
-  		array=newArray;
+		
 
 			$.post(base_url+"pagos/guardar_pagos",{
 
 			"nro_orden" : nro_orden,
-			"monto_orden" : monto_orden,
+			//"monto_orden" : monto_orden,
 			"nombre_beneficiario" : nombre_beneficiario,
 			"id_beneficiario" : id_beneficiario,
 			"nombre_autorizado" : nombre_autorizado,
 			"id_autorizado" : id_autorizado,
-			"cantidad_letras" : cantidad_letras,
+			//"cantidad_letras" : cantidad_letras,
 			"concepto_pago" : concepto_pago,
 			"entidad_bancaria" : entidad_bancaria,
 			"nro_cheque" : nro_cheque,
 			"nro_cuenta" : nro_cuenta,
 			"partidas" : array
 			},function(datos){
-					console.log(datos);
+					
 					location.href=base_url+"pdf/generar_orden/"+datos;
 
 			});
@@ -139,13 +133,27 @@ $(document).on('click', '#guardar', function() {
 	});
 
 $(document).on('click', '#btn_agregar', function(){
-	if(array.includes($("#select_partidas").val())==true){
+	
+	/*if(array.includes($("#select_partidas").val())==true){
 		alert("No se puede cargar la partida dos veces")
 		exit();
-	}
-	array[contador]=$("#select_partidas").val();
+	}*/
+	array[contador]={
+
+		partida                : $("#select_partidas").val(),
+		retencion   : $("#retencion").val(),
+		monto                  : $("#monto_partida").val()
+
+
+		};
+
+console.log(array);
+
+	
 	var montar=$("#select_partidas option:selected").text();
+	var montoo=$("#monto_partida").val();
 	var html='<tr><td>'+montar+'</td>';
+	html+='<td>'+montoo+'</td>';
 	html+='<td><a id="eliminar_partida" data-id_partida="'+array[contador]+'" data-placement="bottom" title="Eliminar Partida">';
 	html+='<span class="glyphicon glyphicon-remove"></span></a></td></tr>';
 	$('#previa tr:last').after(html);
@@ -164,7 +172,7 @@ $(document).on('click', '#eliminar_partida', function(){
   			}
   		array=newArray;
 		$(this).closest('tr').remove();
-		console.log(array);
+		
 });
 
 });
