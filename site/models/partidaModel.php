@@ -10,7 +10,17 @@ class partidaModel extends Model
    public function get_partida_for_id($id)
     {
         
-       $sql = "SELECT * FROM partidas WHERE id_partida='$id'";
+
+         $sql = "SELECT * FROM partidas WHERE id_partida='$id'  ORDER BY `partidas`.`partida` ASC ";
+         $rs=$this->_db->query($sql);
+         $rs->setFetchMode(PDO::FETCH_ASSOC);
+            return $rs->fetch();
+    } 
+    public function get_ISR($partida)
+    {
+        
+
+         $sql = "SELECT * FROM partidas WHERE partida='$partida' ";
          $rs=$this->_db->query($sql);
          $rs->setFetchMode(PDO::FETCH_ASSOC);
             return $rs->fetch();
@@ -36,7 +46,7 @@ class partidaModel extends Model
      public function get_all()
     {
         
-       $sql = "SELECT * FROM partidas WHERE 1=1";
+       $sql = "SELECT * FROM partidas WHERE 1=1  ORDER BY `partidas`.`partida` ASC";
          $rs=$this->_db->query($sql);
          //$rs->setFetchMode(PDO::FETCH_ASSOC);
             return $rs->fetchall();

@@ -26,14 +26,26 @@ class pagosModel extends Model
     public function guardar_pagos($datos)
     {
         $monto=0;
-
+        $retencion=0;
 
         for ($i=0; $i <count($datos['partidas']); $i++)
         { 
-           
-           $monto+=$datos['partidas'][$i]['monto']-(((($datos['partidas'][$i]['monto']/100)*12)/100)*$datos['partidas'][$i]['retencion']);
+
+           $base_imponible=$datos['partidas'][$i]['monto']/1.12;
+           $iva=$base_imponible*0.12;
+           $retencion=($iva/100)*$datos['partidas'][$i]['retencion'];
+           $monto+=$datos['partidas'][$i]['monto']-$retencion;
+
+
+
 
             }
+
+
+
+
+
+
 
         $monto_letras=$this->numtoletras($monto);
 

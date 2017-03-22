@@ -366,7 +366,15 @@ function AddPage($orientation='', $size='')
 }
 
 function Header()
-{
+{		
+		$file=BASE_URL."public/img/logo_1.png";
+
+		$this->Image($file, 15 ,10 , 25,25, 'png');
+
+		$file2=BASE_URL."public/img/logo_2.png";
+
+		$this->Image($file2, ($this->w)-50 ,15 , 25,15, 'png');
+
  $week_days = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"); 
         $monts = array("","Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"); 
         $week_days_now = date("w"); 
@@ -384,8 +392,12 @@ function Header()
         //$this->Cell(50,4,$date,0,0,'L'); 
         $this->ln();      
         $this->setx(($this->w)-30);
-        $this->Cell(40,4,'Pagina :'.$this->PageNo(),0,0,'L');
-         
+        $this->Cell(40,4,'Pagina :'.$this->PageNo(),0,1,'L');
+        $this->SetFont('Arial','B',8);
+			$this->Cell(190,4, utf8_decode('REPUBLICA BOLIVARIANA DE VENEZUELA'),0,1,'C');
+			$this->Cell(190,4, utf8_decode('FUNDACION MUNICIPAL PARA LA INNOVACION, CIENCIA Y TECNOLOGIA'),0,1,'C');
+			$this->Cell(190,4, utf8_decode('CUMANÁ-EDO-SUCRE'),0,1,'C');
+			$this->Cell(190,4, utf8_decode('G-20012114-9'),0,1,'C');
    
         $this->ln();  
 
@@ -396,6 +408,13 @@ function Header()
 
 function Footer()
 {
+	//function Line($x1, $y1, $x2, $y2)
+$this->line(10,254,$this->w-10,254);
+$this->SetY(250);
+$this->SetFont('Arial','B',9);
+$this->Cell(190,4, utf8_decode('Av. Cacique Maragüey, Sector Monumento, al lado del Comando de Guarda Costas Cumaná'),0,1,'C');
+$this->Cell(190,4, utf8_decode('fundamunict@gmail.com'),0,1,'C');
+		
 }
 
 function PageNo()
