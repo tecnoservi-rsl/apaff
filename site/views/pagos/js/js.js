@@ -142,7 +142,8 @@ $(document).on('click', '#btn_agregar', function(){
 
 		partida                : $("#select_partidas").val(),
 		retencion   : $("#retencion").val(),
-		monto                  : $("#monto_partida").val()
+		monto                  : $("#monto_partida").val(),
+		iva                  : $("#iva").val()
 
 
 		};

@@ -28,27 +28,26 @@ class pagosModel extends Model
         $monto=0;
         $retencion=0;
 
-        for ($i=0; $i <count($datos['partidas']); $i++)
+        for ($i=0; $i < count($datos['partidas']); $i++)
         { 
 
-           $base_imponible=$datos['partidas'][$i]['monto']/1.12;
-           $iva=$base_imponible*0.12;
+           $base_imponible=$datos['partidas'][$i]['monto']/(number_format('1.'.$datos['partidas'][$i]['iva'],2,".",""));
+           $iva=($base_imponible/100)*$datos['partidas'][$i]['iva'];
            $retencion=($iva/100)*$datos['partidas'][$i]['retencion'];
-           $monto+=$datos['partidas'][$i]['monto']-$retencion;
-
-
-
+           $monto+=($base_imponible+($iva-$retencion));
+            
+            
 
             }
+           
 
 
 
 
 
+        $monto_letras=$this->numtoletras(number_format($monto,2,".",""));
 
-
-        $monto_letras=$this->numtoletras($monto);
-
+       // echo number_format($monto,2,".","")."---".$monto_letras;
        
 	   $sql="insert into pagos 
         values ('',
@@ -66,8 +65,8 @@ class pagosModel extends Model
         $this->_db->query($sql);
         $id=$this->_db->lastInsertId();
         for ($i=0; $i <count($datos['partidas']); $i++) { 
-            $sql="insert into pagos_partidas values ('$id', '".$datos['partidas'][$i]['partida']."', '".$datos['partidas'][$i]['monto']."', '".$datos['partidas'][$i]['retencion']."')";
-            $this->_db->query($sql);
+            $sql="insert into pagos_partidas values ('$id', '".$datos['partidas'][$i]['partida']."', '".$datos['partidas'][$i]['monto']."', '".$datos['partidas'][$i]['retencion']."', '".$datos['partidas'][$i]['iva']."')";
+           $this->_db->query($sql);
             }
        return $id;
 

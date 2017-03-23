@@ -104,8 +104,8 @@ class pdfController extends Controller
 
 
 
-	$base_imponible=(($pago->partidas[$i]['monto'])/1.12);
-	$iva=$base_imponible*0.12;
+	$base_imponible=(($pago->partidas[$i]['monto'])/(number_format('1.'.$pago->partidas[$i]['iva'],2,".","")));
+	$iva=($base_imponible/100)*$pago->partidas[$i]['iva'];
 
 	$retencion=($iva/100)*$pago->partidas[$i]['retencion'];
 	$suma+=$pago->partidas[$i]['monto']-$retencion;
