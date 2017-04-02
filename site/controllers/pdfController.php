@@ -50,7 +50,7 @@ class pdfController extends Controller
 			$this->_pdf->Cell(47,4,utf8_decode('Fecha de solicitud:'),0,0,'L');
 			$this->_pdf->Cell(47,4,utf8_decode(date("d-m-Y")),'B',0,'L');
 			$this->_pdf->Cell(45,4,utf8_decode('Monto:'),0,0,'R');
-			$this->_pdf->Cell(47,4,utf8_decode(number_format($pago->monto_orden,2)),'B',1,'L');
+			$this->_pdf->Cell(47,4,utf8_decode(number_format($pago->monto_orden,2,',','.')),'B',1,'L');
 			$this->_pdf->Ln(6);
 
 
@@ -111,7 +111,7 @@ class pdfController extends Controller
 	$suma+=$pago->partidas[$i]['monto']-$retencion;
 	$suma_bruto+=$pago->partidas[$i]['monto'];
 	$suma_retencion+=$retencion;
-	$this->_pdf->Cell(25,4,utf8_decode('Bs. '.number_format ( ($pago->partidas[$i]['monto']-$retencion) , 2)),0,1,'L');
+	$this->_pdf->Cell(25,4,utf8_decode('Bs. '.number_format ( ($pago->partidas[$i]['monto']-$retencion) , 2,',','.')),0,1,'L');
 
 
 
@@ -123,11 +123,11 @@ class pdfController extends Controller
 						$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[2]) )  ? $prt[2] : ""),1,0,'L');
 						$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[3]) )  ? $prt[3] : ""),1,0,'L');
 						$this->_pdf->Cell(20,4,utf8_decode($retVal = (isset($prt[4]) )  ? $prt[4] : ""),1,0,'L');
-						$this->_pdf->Cell(20,4,utf8_decode("Bs. ".number_format($suma_retencion,2)),0,1,'L');
+						$this->_pdf->Cell(20,4,utf8_decode("Bs. ".number_format($suma_retencion,2,',','.')),0,1,'L');
 
 			$this->_pdf->SetX(70);
 			$this->_pdf->Cell(20,4,utf8_decode('TOTAL'),1,0,'R');
-			$this->_pdf->Cell(25,4,utf8_decode('Bs. '.number_format($suma+$suma_retencion,2)),"T",1,'L');
+			$this->_pdf->Cell(25,4,utf8_decode('Bs. '.number_format($suma+$suma_retencion,2,',','.')),"T",1,'L');
 			
 
 			
@@ -140,7 +140,7 @@ class pdfController extends Controller
 
 
 
-			$this->_pdf->Ln(10);
+			$this->_pdf->Ln(3);
 
 			$this->_pdf->Cell(190,8,utf8_decode('AUTORIZA:'),0,1,'L');
 
@@ -182,7 +182,7 @@ class pdfController extends Controller
 			$this->_pdf->Cell(47,8,utf8_decode(''),1,1,'C');
 
 
-			$this->_pdf->Ln(37);
+			$this->_pdf->Ln(3);
 			$this->_pdf->SetFont('Arial','B',8);
 
 			$this->_pdf->Cell(190,8,utf8_decode('IMPORTANTE'),0,1,'C');

@@ -131,13 +131,13 @@ function numtoletras($xcifra)
                     break;
                 case 2:
                     if ($xcifra < 1) {
-                        $xcadena = "CERO BOLIVARES $xdecimales/100 M.N.";
+                        $xcadena = "CERO BOLIVARES $xdecimales/100 CENTIMOS";
                     }
                     if ($xcifra >= 1 && $xcifra < 2) {
-                        $xcadena = "UN BOLIVARES $xdecimales/100 M.N. ";
+                        $xcadena = "UN BOLIVARES $xdecimales/100 CENTIMOS";
                     }
                     if ($xcifra >= 2) {
-                        $xcadena.= " BOLIVARES $xdecimales/100 M.N. "; //
+                        $xcadena.= " BOLIVARES $xdecimales/100 CENTIMOS"; //
                     }
                     break;
             } // endswitch ($xz)
