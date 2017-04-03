@@ -95,6 +95,10 @@ function select_partidas(){
 select_partidas();
 
 $(document).on('click', '#guardar', function() {
+
+	if (!$('#form_registro').validationEngine('validate')) {
+		return;
+	}
 	
 		var nro_orden =$("#nro_orden").val();
 		//var monto_orden =$("#monto_orden").val();

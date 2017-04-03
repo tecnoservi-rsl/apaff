@@ -18,7 +18,7 @@ class pagosController extends Controller
            
         
         $this->_view->titulo = 'Pagos';
-        $this->_view->setJs(array('js'));
+        $this->_view->setJs(array('js','validar_for'));
         $this->_view->setCss(array('index'));
         
        
