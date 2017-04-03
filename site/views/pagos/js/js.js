@@ -99,6 +99,12 @@ $(document).on('click', '#guardar', function() {
 	if (!$('#form_registro').validationEngine('validate')) {
 		return;
 	}
+	if (array.length==0) {
+
+	alertify.alert("cargue las portidas a descontar no sea flojooo");
+	return;
+
+	}
 	
 		var nro_orden =$("#nro_orden").val();
 		//var monto_orden =$("#monto_orden").val();
